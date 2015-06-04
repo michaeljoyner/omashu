@@ -1,0 +1,97 @@
+html, body {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: 'Open Sans', 'Helvetica', Ariel, sans-serif;
+}
+
+a, a:visited, a:focus, a:hover {
+	color: inherit;
+	outline: 0;
+	text-decoration: none;
+}
+
+h1 {
+	color: #983C2D;
+	font-family: 'Slabo 13px';
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 32px;
+}
+
+hr {
+	width: 80%;
+	height: 4px;
+	background: #983C2D;
+	margin-top: 70px;
+}
+
+footer {
+	height: 100px;
+	width: 100%;
+	background: #983C2D;
+}
+
+.announcement {
+	color: #983C2D;
+	font-family: 'Slabo 13px';
+	text-align: center;
+}
+
+.announcement span {
+	border-top: 4px solid #983C2D;
+	border-bottom: 4px solid #983C2D;
+	text-transform: uppercase;
+	display: inline-block;
+	width: 80%;
+	text-align: center;
+}
+
+header img {
+	width: 90%;
+	max-width: 500px;
+	display: block;
+	margin: 50px auto;
+
+}
+
+.page-section {
+	padding: 70px 1em 0;
+}
+
+.garlicbox {
+
+}
+
+.garlicbox img {
+	display: block;
+	margin: 0 auto 70px;
+	width: 300px;
+	max-width: 90%;
+}
+
+.contact.page-section {
+	color: #983C2D;
+	padding-top: 50px;
+}
+
+.contact p {
+	text-align: center;
+}
+
+.engwin {
+	max-width: 280px;
+	margin: 0 auto;
+}
+
+.engwin p {
+	text-align: left;
+}
+
+.chongwin {
+	padding-top: 50px;
+	padding-bottom: 70px;
+}

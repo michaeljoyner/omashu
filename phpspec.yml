@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Omashu
+        psr4_prefix: Omashu
+        src_path: app
