@@ -15,7 +15,7 @@ class PagesController extends Controller {
 
     public function homePage()
     {
-        return view('temphome');
+        return 'Omashu Home Page';
     }
 
 }
