@@ -38,6 +38,7 @@ class BrandsTest extends TestCase {
 
         $brandData = TestDummy::attributesFor('Omashu\Stock\Brand');
         unset($brandData['image_path']);
+        $brandData['website'] = 'http://'.$brandData['website'];
 
         $this->visit('admin/brands/create')
             ->andSubmitForm('Add Brand', $brandData)

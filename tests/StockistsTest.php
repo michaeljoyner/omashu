@@ -40,6 +40,7 @@ class StockistsTest extends TestCase {
 
         $stockistDetails = TestDummy::attributesFor('Omashu\Stock\Stockist');
         unset($stockistDetails['image_path']);
+        $stockistDetails['website'] = 'http://'.$stockistDetails['website'];
 
         $this->visit('admin/stockists/create')
             ->andSubmitForm('Add Stockist', $stockistDetails)

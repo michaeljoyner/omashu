@@ -1,0 +1,9 @@
+.omashu-form {
+  label {
+    color: lighten($primary_blue, 10%);
+  }
+
+  input[type=text], input[type=password], input[type=email], textarea {
+    border-radius: 0;
+  }
+}

@@ -136,6 +136,9 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
         'Collective\Html\HtmlServiceProvider',
+        'Intervention\Image\ImageServiceProvider',
+        'Laracasts\Flash\FlashServiceProvider',
+
 
 		/*
 		 * Application Service Providers...
@@ -145,6 +148,7 @@ return [
 		'Omashu\Providers\ConfigServiceProvider',
 		'Omashu\Providers\EventServiceProvider',
 		'Omashu\Providers\RouteServiceProvider',
+        'Omashu\Providers\ViewComposerProvider'
 
 	],
 

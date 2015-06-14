@@ -1,0 +1,50 @@
+.image-preview-box.dropzone-previews {
+  width: 100%;
+  min-height: 401px;
+  position: relative;
+
+  .dz-preview {
+    width: 100%;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+
+    .dz-image {
+      width: 95%;
+      height: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+      border-radius: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+form.dropzone {
+
+  height: 50px;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  background-color: lighten($primary_blue, 10%);
+
+  .dz-message {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+
+}

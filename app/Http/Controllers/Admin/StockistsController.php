@@ -30,6 +30,13 @@ class StockistsController extends Controller {
         return view('admin.stockists.create')->with(compact('stockist'));
     }
 
+    public function store(StockistFormRequest $request)
+    {
+        Stockist::create($request->all());
+        flash()->message('New stockist added. Here\'s to new relationships.');
+        return redirect()->to('admin/stockists');
+    }
+
     public function edit($id)
     {
         $stockist = Stockist::findOrFail($id);
@@ -41,14 +48,15 @@ class StockistsController extends Controller {
     {
         $stockist = Stockist::findOrFail($id);
         $stockist->update($request->all());
-
+        flash()->message('Stockist updated. I applaud your efforts.');
         return redirect()->to('admin/stockists');
     }
 
-    public function store(StockistFormRequest $request)
+    public function delete($id)
     {
-        Stockist::create($request->all());
-
+        $stockist = Stockist::findOrFail($id);
+        $stockist->delete();
+        flash()->message('Stockist deleted. People come, people go, cest la vie');
         return redirect()->to('admin/stockists');
     }
 }

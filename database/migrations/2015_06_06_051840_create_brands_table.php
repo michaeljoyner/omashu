@@ -19,6 +19,7 @@ class CreateBrandsTable extends Migration {
             $table->string('slug')->unique();
             $table->string('website');
             $table->text('tagline');
+            $table->text('zh_tagline');
             $table->text('description');
             $table->text('image_path')->nullable();
 			$table->timestamps();

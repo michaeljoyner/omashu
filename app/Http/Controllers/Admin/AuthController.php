@@ -17,7 +17,7 @@ class AuthController extends Controller {
 
     public function doLogin(LoginFormRequest $request)
     {
-        if(Auth::attempt($request->only('email', 'password'))) {
+        if(Auth::attempt($request->only('email', 'password'), $request->has('remember_me'))) {
             return redirect()->intended('admin/');
         }
 
@@ -39,8 +39,8 @@ class AuthController extends Controller {
         $user = Auth::user();
         $user->password = $request->get('new_password');
         $user->save();
-
-        return redirect()->to('admin/');
+        flash()->message('Your password has been reset. You are a good person. Congratulations.');
+        return redirect()->to('admin/brands');
     }
 
     public function logout()

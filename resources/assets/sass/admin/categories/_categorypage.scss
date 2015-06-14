@@ -1,0 +1,25 @@
+.show-category {
+  img {
+    width: 95%;
+    display: block;
+    max-width: 300px;
+    height: 100%;
+    max-height: 400px;
+    margin: 0 auto;
+  }
+}
+
+.category-product-list {
+  .product-box {
+    width: 27%;
+
+    img {
+      width: 95%;
+      max-width: 300px;
+      max-height: 300px;
+      height: 100%;
+      display: block;
+      margin: 10px auto;
+    }
+  }
+}

@@ -1,0 +1,96 @@
+.main-navbar {
+  background-color: lighten($primary_blue, 10%);
+
+  .user-box {
+    text-align: center;
+    font-family: $heading_text;
+    text-transform: uppercase;
+    background-color: $white;
+    border: 2px solid $primary_brown;
+    border-radius: 8px;
+    width: 90%;
+    margin: 20px auto;
+
+    .users-name {
+      color: $primary_brown;
+      margin: 5px;
+    }
+
+    .user-options {
+      transition: 1s;
+      max-height: 0;
+      height: 0;
+      overflow: hidden;
+      list-style-type: none;
+      font-family: $body_text;
+      padding: 0;
+      margin: 0;
+    }
+
+    &:hover .user-options {
+      max-height: 100px;
+      height: auto;
+    }
+  }
+
+  .branding {
+    padding: 20px;
+    margin-bottom: 50px;
+    font-family: $heading_text;
+    text-transform: uppercase;
+    font-size: 32px;
+    color: $white;
+    text-align: center;
+  }
+
+  .top-level {
+    list-style-type: none;
+    font-size: 1.5em;
+    color: $white;
+    font-family: $body_text;
+    text-transform: uppercase;
+    padding: 0;
+
+    &>li {
+      padding-left: 20px;
+      &:hover {
+        background-color: lighten($primary_blue, 20%);
+        color: darken($primary_blue, 20%);
+      }
+    }
+
+    &>li:hover > .second-level {
+      max-height: 400px;
+      height: auto;
+    }
+  }
+
+  .second-level, .third-level {
+    list-style-type: none;
+    color: $white;
+    transition: 1s;
+    transition-delay: .75s;
+    height: 0;
+    max-height: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .second-level {
+    &>li {
+      background-color: lighten($primary_blue, 30%);
+      font-size: 90%;
+    }
+    &>li:hover .third-level {
+      max-height: 400px;
+      height: auto;
+    }
+  }
+
+  .third-level>li {
+    background-color: lighten($primary_blue, 40%);
+    font-size: 90%;
+  }
+
+
+}

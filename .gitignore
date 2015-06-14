@@ -3,3 +3,7 @@
 .env
 /.idea
 .DS_store
+/public/images/stockuploads/brands/*
+/public/images/stockuploads/categories/*
+/public/images/stockuploads/products/*
+/public/images/stockuploads/stockists/*

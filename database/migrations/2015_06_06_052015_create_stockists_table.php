@@ -18,6 +18,7 @@ class CreateStockistsTable extends Migration {
             $table->string('name');
             $table->string('slug');
             $table->text('address');
+            $table->text('zh_address');
             $table->string('phone');
             $table->string('website');
             $table->text('image_path')->nullable();

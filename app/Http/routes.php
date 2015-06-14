@@ -66,6 +66,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::get('stockists/{slug}', 'StockistsController@show');
         Route::delete('stockists/{id}', 'StockistsController@delete');
 
+        Route::post('ajaxuploads/brands/imageupload', 'AjaxUploadController@storeBrandImage');
+        Route::post('ajaxuploads/categories/imageupload', 'AjaxUploadController@storeCategoryImage');
+        Route::post('ajaxuploads/products/imageupload', 'AjaxUploadController@storeProductImage');
+        Route::post('ajaxuploads/stockists/imageupload', 'AjaxUploadController@storeStockistImage');
+
     });
 
 });

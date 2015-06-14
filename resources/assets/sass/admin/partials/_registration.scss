@@ -1,0 +1,53 @@
+.users-list {
+  padding-top: 50px;
+
+  .business-card {
+    display: block;
+    max-width: 400px;
+    height: 250px;
+    padding-top: 10px;
+    position: relative;
+    margin: 25px 10px;
+    box-shadow: 2px 2px 5px $primary_brown;
+    background-color: #fffffa;
+    img {
+      display: block;
+      width: 30%;
+      margin: 10px auto 20px;
+    }
+    
+    .user-name {
+      text-transform: uppercase;
+      font-family: $heading_text;
+      color: $primary_brown;
+      text-align: center;
+    }
+    
+    .user-email {
+      color: $primary_brown;
+      font-family: $heading_text;
+      font-size: 90%;
+      text-align: center;
+      position: absolute;
+      left: 0;
+      bottom: 5px;
+      width: 100%;
+    }
+
+    .btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      opacity: 0;
+      transition: .75s;
+    }
+
+    &:hover .btn {
+      opacity: 1;
+    }
+  }
+}
+
+.register-form-box {
+  padding-top: 50px;
+}

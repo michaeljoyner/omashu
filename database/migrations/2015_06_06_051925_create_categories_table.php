@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration {
             $table->integer('brand_id')->unsigned();
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->string('name');
+            $table->string('zh_name');
             $table->string('slug')->unique();
             $table->text('description');
             $table->text('image_path')->nullable();

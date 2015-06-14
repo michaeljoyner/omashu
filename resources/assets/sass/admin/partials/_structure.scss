@@ -1,0 +1,16 @@
+.main-navbar {
+  width: 300px;
+  height: 100%;
+  float: left;
+  position: fixed;
+}
+
+.main-content {
+  width: 100%;
+  padding-left: 330px;
+  display: inline-block;
+
+  .container {
+    width: 95%;
+  }
+}

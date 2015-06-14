@@ -1,0 +1,37 @@
+.display-card.brand-box {
+  width: 45%;
+  padding: 1em;
+
+  img {
+    display: block;
+    max-width: 95%;
+    margin: 0 auto;
+    max-height: 400px;
+  }
+}
+
+.brand-showarea {
+
+  .brand-showimage-box {
+    img {
+      max-width: 95%;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+}
+
+.category-listarea {
+
+  .category-box {
+    width: 27%;
+    margin: 10px;
+    padding: 12px;
+
+    h3 {
+      text-align: center;
+    }
+  }
+
+
+}

@@ -28,7 +28,7 @@ class CategoriesController extends Controller {
     {
         $brand = Brand::findOrFail($brand_id);
         $brand->categories()->create($request->all());
-
+        flash()->message('New category created. Diversity is great!');
         return redirect()->to('admin/brands/'.$brand->slug);
     }
 
@@ -43,7 +43,7 @@ class CategoriesController extends Controller {
     {
         $category = Category::findOrFail($id);
         $category->update($request->all());
-
+        flash()->message('Category updated. Keeping a tight ship, I respect that.');
         return redirect()->to('admin/categories/'.$category->slug);
     }
 
@@ -51,7 +51,7 @@ class CategoriesController extends Controller {
     {
         $category = Category::findOrFail($id);
         $category->delete();
-
+        flash()->message('Category deleted. All that once was is but memories now.');
         return redirect()->to('admin/brands');
     }
 

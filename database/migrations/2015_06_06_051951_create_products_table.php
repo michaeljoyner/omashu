@@ -18,8 +18,10 @@ class CreateProductsTable extends Migration {
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('name');
+            $table->string('zh_name');
             $table->string('slug');
             $table->string('quantifier');
+            $table->string('zh_quantifier');
             $table->text('description');
             $table->boolean('is_available')->default(true);
             $table->text('image_path')->nullable();

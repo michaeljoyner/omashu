@@ -32,7 +32,7 @@ class BrandsController extends Controller {
     public function store(BrandFormRequest $request)
     {
         Brand::create($request->all());
-
+        flash()->message('New brand added! You\'re killing it!');
         return redirect()->to('admin/brands');
     }
 
@@ -47,7 +47,7 @@ class BrandsController extends Controller {
     {
         $brand = Brand::findOrFail($id);
         $brand->update($request->all());
-
+        flash()->message('Brand updated successfully. Good work soldier.');
         return redirect()->to('admin/brands');
     }
 
@@ -55,7 +55,7 @@ class BrandsController extends Controller {
     {
         $brand = Brand::findOrFail($id);
         $brand->delete();
-
+        flash()->message('That brand is gone. Nothing lasts forever. Nothing.');
         return redirect()->to('admin/brands');
     }
 

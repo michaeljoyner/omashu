@@ -1,19 +1,28 @@
 @extends('admin.base')
 
 @section('content')
-    <h1>Register a New User</h1>
-    @include('admin.partials.errors')
-    @foreach($users as $user)
-        <div class="user-box">
-            <p class="user-name">{{ $user->name }}</p>
-            <p class="user-email">{{ $user->email }}</p>
-
-            <button type="button" class="btn btn-danger pull-right" data-usersname="{{ $user->name }}" data-action="/admin/registration/delete/{{ $user->id }}" data-toggle="modal" data-target="#confirm-delete-modal">
-                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
-            </button>
+    <div class="container">
+        <h1>Omashu Users and Abusers</h1>
+        <div class="row">
+            <div class="col-md-6 users-list">
+                @foreach($users as $user)
+                    <div class="user-box business-card">
+                        <img src="{{ asset('images/website_logo.png') }}" alt=""/>
+                        <p class="user-name">{{ $user->name }}</p>
+                        <p class="user-email">{{ $user->email }}</p>
+                        <button type="button" class="btn omashu-btn warning-btn" data-usersname="{{ $user->name }}" data-action="/admin/registration/delete/{{ $user->id }}" data-toggle="modal" data-target="#confirm-delete-modal">
+                            Delete
+                        </button>
+                    </div>
+                @endforeach
+            </div>
+            <div class="col-md-6 register-form-box">
+                <h3>Register a New User</h3>
+                @include('admin.partials.errors')
+                @include('admin.registration.registrationform')
+            </div>
         </div>
-    @endforeach
-    @include('admin.registration.registrationform')
+    </div>
     @include('admin.partials.deletemodal')
 @endsection
 

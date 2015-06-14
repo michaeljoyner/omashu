@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Omashu Admin</title>
-
+    @yield('head')
     <!-- Latest compiled and minified CSS for bootstrap-->
     <link rel="stylesheet" href="{{ elixir("css/bapp.css") }}">
+    <link href='http://fonts.googleapis.com/css?family=Slabo+13px|Open+Sans:400,300' rel='stylesheet' type='text/css'>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,10 +20,18 @@
     <![endif]-->
 </head>
 <body>
-    @yield('content')
+    <div class="main-navbar">
+        @include('admin.partials.navbar')
+    </div>
+    <div class="main-content">
+        @yield('content')
+    </div>
+    @include('flash::message')
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="{{ elixir("js/app.js") }}"></script>
+    <script>
+        $('.alert-info').delay(2000).hide('slow');
+    </script>
     @yield('bodyscripts')
 </body>
 </html>

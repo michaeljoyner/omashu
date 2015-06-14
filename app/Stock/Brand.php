@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Brand extends Model {
 
-    use SetsSlugFromNameTrait;
+    use SetsSlugFromNameTrait, HasImageTrait, UsesAbsoluteUrlsTrait;
 
 	protected $table = 'brands';
 
@@ -14,8 +14,14 @@ class Brand extends Model {
         'website',
         'image_path',
         'tagline',
+        'zh_tagline',
         'description',
     ];
+
+    public function setWebsiteAttribute($website)
+    {
+        $this->attributes['website'] = $this->makeAbsoluteUrl($website);
+    }
 
     public function categories()
     {

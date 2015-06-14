@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stockist extends Model {
 
-    use SetsSlugFromNameTrait;
+    use SetsSlugFromNameTrait, HasImageTrait, UsesAbsoluteUrlsTrait;
 
 	protected $table = 'stockists';
 
@@ -12,9 +12,15 @@ class Stockist extends Model {
         'name',
         'slug',
         'address',
+        'zh_address',
         'phone',
         'website',
         'image_path'
     ];
+
+    public function setWebsiteAttribute($website)
+    {
+        $this->attributes['website'] = $this->makeAbsoluteUrl($website);
+    }
 
 }

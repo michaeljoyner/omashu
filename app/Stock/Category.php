@@ -4,12 +4,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model {
 
-    use SetsSlugFromNameTrait;
+    use SetsSlugFromNameTrait, HasImageTrait;
 
 	protected $table = 'categories';
 
     protected $fillable = [
         'name',
+        'zh_name',
         'slug',
         'description',
         'image_path'

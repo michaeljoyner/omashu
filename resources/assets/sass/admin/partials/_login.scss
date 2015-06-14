@@ -1,0 +1,17 @@
+.login-form-container {
+  width: 100vw;
+  height: 100vh;
+  padding: 50px 20px;
+  text-align: center;
+  background-image: url(../../images/stock/defaultproduct.png);
+
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+
+    label {
+      color: $white;
+    }
+  }
+}
