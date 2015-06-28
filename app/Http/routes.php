@@ -10,9 +10,17 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/', function() {
+   return view('temphome');
+});
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/comingsoon', 'Front\PagesController@homePage');
+    Route::get('/brands', 'Front\PagesController@brandsPage');
+    Route::get('/products', 'Front\PagesController@productsPage');
+    Route::get('/stockists', 'Front\PagesController@stockistsPage');
 
-Route::get('/', 'Front\PagesController@homePage');
-
+    Route::post('contactomashu', 'ContactsController@getMessage');
+});
 
 /*
  * Admin Routes

@@ -20,6 +20,10 @@
     {!! Form::text('website', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
+    <label for="location">Location:</label>
+    {!! Form::text('location', null, ['class' => 'form-control']) !!}
+</div>
+<div class="form-group">
     <div>
         <button class="btn omashu-btn" type="submit">{{ $submitText }}</button>
     </div>

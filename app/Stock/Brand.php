@@ -16,6 +16,7 @@ class Brand extends Model {
         'tagline',
         'zh_tagline',
         'description',
+        'location'
     ];
 
     public function setWebsiteAttribute($website)

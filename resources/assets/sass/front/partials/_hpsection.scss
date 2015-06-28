@@ -1,0 +1,178 @@
+.omashu-section {
+  padding: 50px 1em;
+  position: relative;
+  clear: both;
+
+  .clearfix {
+    clear: both;
+  }
+
+  .section-title {
+    font-family: $heading_text;
+    text-align: center;
+    &>span {
+      padding: 10px 30px;
+      border: 2px solid $primary_brown;
+      @include respond-to(phone) {border: 0; padding: 0;}
+
+    }
+
+    span {
+      text-transform: uppercase;
+      color: $primary_brown;
+    }
+
+    .zh-title {
+      padding-right: 15px;
+      @include respond-to(phone) {padding-right: 0; display: block;}
+    }
+    &.white-title span {
+      border-color: $white;
+      color: $white;
+    }
+  }
+
+  .two-column {
+    width: 48%;
+    float: left;
+    margin-top: 50px;
+    @include respond-to(phone) {width: 100%; float: none;}
+    @include respond-to(smalltablet) {width: 100%; float: none;}
+
+    p {
+      max-width: 90%;
+      margin: 0 auto;
+      text-align: center;
+//      color: $white;
+    }
+  }
+
+  .two-column:nth-of-type(1) {
+    border-right: 2px solid $white;
+    width: 50%;
+    @include respond-to(phone) {width: 100%; float: none; border-right: 0;}
+    @include respond-to(smalltablet) {width: 100%; float: none; border-right: 0;}
+  }
+
+  &.banner-section {
+    background-image: url(../../images/front/home_banner_14.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 200px;
+    padding-top: 0;
+    @include respond-to(phone) {background-position: 30% 100%; background-size: auto;}
+    .logo-img {
+      display: block;
+      width: 90%;
+      max-width: 350px;
+      margin: 50px auto;
+    }
+    p {
+      font-size: 120%;
+      max-width: 800px;
+      text-align: center;
+      margin: 0px auto 50px;
+      color: $primary_brown;
+      font-family: $heading_text;
+      font-style: italic;
+      line-height: 1.6;
+      @include respond-to(largetablet) {max-width: 700px;}
+    }
+
+    .home-header {
+      @include respond-to(phone) {margin: 0 -1em;}
+      @include respond-to(smalltablet) {margin: 0 -1em;}
+    }
+  }
+
+  &.brand-section {
+    .brand-row {
+      text-align: center;
+      padding-top: 50px;
+      .brand-box {
+        width: 27%;
+        display: inline-block;
+        vertical-align: top;
+
+        @include respond-to(phone) {width: 100%; display: block;}
+        @include respond-to(smalltablet) {width: 100%; display: block;}
+        @include respond-to(largetablet) {width: 100%; display: block;}
+
+        img {
+          display: block;
+          border-radius: 50%;
+          width: 200px;
+          height: 200px;
+          margin: 0 auto 30px;
+        }
+
+        p {
+          max-width: 80%;
+          margin: 1em auto;
+        }
+      }
+    }
+  }
+
+  &.about-section {
+    background-image: url(../../images/front/about_image_1400.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 80%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    @include respond-to(phone) {background-size: auto; background-position: 50% 100%;}
+    @include respond-to(smalltablet) {background-size: auto; background-position: 50% 100%;}
+    @include respond-to(largetablet) {background-size: auto; background-position: 50% 100%;}
+    @include respond-to(desktop) {background-size: auto;}
+
+    .two-column {
+      p {
+        max-width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        color: $white;
+        @include respond-to(phone) {max-width: 100%;}
+        @include respond-to(smalltablet) {max-width: 100%;}
+      }
+    }
+
+  }
+
+  &.contact-section {
+
+    &>p {
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    .contact-details {
+      max-width: 900px;
+      margin: 50px auto 0;
+      position: relative;
+      clear: both;
+
+      .two-column {
+        padding: 0 40px;
+        h2, h3 {
+          text-align: left;
+          padding-left: 20px;
+        }
+        p {
+          text-align: left;
+        }
+
+      }
+
+      .two-column:nth-of-type(1) {
+        border-right: 2px solid $border_grey;
+        width: 50%;
+        @include respond-to(phone) {width: 100%; border-right: 0;}
+        @include respond-to(smalltablet) {width: 100%; border-right: 0;}
+      }
+    }
+
+
+  }
+}

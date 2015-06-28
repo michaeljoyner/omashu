@@ -1,0 +1,42 @@
+.om-btn {
+  padding: 8px;
+  text-transform: uppercase;
+  font-family: $heading_text;
+  color: $primary_brown;
+  border: 2px solid $primary_brown;
+  display: inline-block;
+
+  &:hover {
+    color: $white;
+    background-color: $primary_brown;
+  }
+
+  .btn-zh {
+    padding-right: 30px;
+  }
+}
+
+button.om-btn {
+  background-color: transparent;
+  font-size: 18px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.back-to-top-btn {
+  width: 50px;
+  height: 50px;
+  color: $white;
+  background-color: $primary_blue;
+  border-radius: 50%;
+  font-family: $body_text;
+  position: fixed;
+  right: 10px;
+  top: 85vh;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 85%;
+  display: none;
+  line-height: 50px;
+  cursor: pointer;
+}

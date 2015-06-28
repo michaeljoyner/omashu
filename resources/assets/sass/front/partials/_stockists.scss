@@ -1,0 +1,54 @@
+.stockist-item {
+  border-top: 2px solid $border_grey;
+  border-left: 2px solid $border_grey;
+  position: relative;
+  padding: 40px;
+  @include respond-to(phone) {padding: 0;}
+  @include respond-to(smalltablet) {padding: 0;}
+
+  &:before {
+    content: '';
+    width: 30px;
+    height: 52px;
+    top: -25px;
+    left: -3px;
+    position: absolute;
+    background-color: $white;
+  }
+  .stockist-image-box {
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 40px;
+    @include respond-to(phone) {display: block; width: 90%; margin: 10px auto;}
+    @include respond-to(smalltablet) {display: block; width: 90%; margin: 10px auto;}
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .stockist-info-box {
+    width: 69%;
+    display: inline-block;
+    padding: 16px 0 16px 40px;
+    @include respond-to(phone) {display: block; width: 100%;}
+    @include respond-to(smalltablet) {display: block; width: 100%;}
+
+    h2 {
+      margin: 0;
+      padding-bottom: 40px;
+      text-align: left;
+    }
+
+    .item-label {
+      font-weight: 400;
+      color: $primary_blue;
+    }
+    
+    .stockist-site a {
+      text-transform: lowercase;
+      text-decoration: underline;
+    }
+  }
+}

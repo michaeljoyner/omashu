@@ -23,12 +23,20 @@ abstract class FileStorer
     public function storeImage($image)
     {
         $path = $this->getImagePath($image->getClientOriginalExtension());
-        $resizeDimensions = $this->getResizeDimensions($image);
-        $this->imageManager->make($image)
-            ->resize($resizeDimensions['width'], $resizeDimensions['height'])
-            ->save(public_path().$path);
-
+        $processedImage = $this->process($image);
+        $processedImage->save(public_path().$path);
         return $path;
+    }
+
+    protected function process($image) {
+        $imageDimensions = $this->getImageDimensions($image);
+        if($imageDimensions['width'] > $imageDimensions['height']) {
+            $pos = 'top-left';
+        } else {
+            $pos = 'center';
+        }
+        $canvas = $this->imageManager->canvas($imageDimensions['longest'], $imageDimensions['longest']);
+        return $canvas->insert($image, $pos)->resize($this->maxDimension, $this->maxDimension);
     }
 
     protected function getImagePath($extension)
@@ -36,6 +44,15 @@ abstract class FileStorer
         $now = new \DateTime();
         $prefix = $now->format('M_Y_');
         return '/'.$this->path.$prefix.$now->getTimestamp().'.'.$extension;
+    }
+
+    protected function getImageDimensions($image) {
+        $dim = getimagesize($image);
+        return [
+            'width' => $dim[0],
+            'height' => $dim[1],
+            'longest' => max($dim[0], $dim[1])
+        ];
     }
 
     protected function getResizeDimensions($image)

@@ -1,0 +1,96 @@
+.twocol-wrapper {
+  clear: both;
+}
+
+.side-menu {
+  width: 25%;
+  display: inline-block;
+//  border-right: 2px solid $primary_brown;
+  height: 100%;
+  vertical-align: top;
+  @include respond-to(phone) {width: 100%; display: block; height: auto;}
+  @include respond-to(smalltablet) {width: 100%; display: block; height: auto;}
+
+  .contents-top-level {
+    list-style-type: none;
+
+    &>li {
+      padding: 10px 0;
+      text-transform: uppercase;
+      font-family: $heading_text;
+      color: $primary_brown;
+    }
+
+    &>li:hover {
+      color: $primary_blue;
+    }
+
+    .contents-second-level {
+      height: 0;
+      max-height: 0;
+      transition: 1s;
+      overflow: hidden;
+      list-style-type: none;
+      padding-left: 0;
+
+      &>li {
+        font-family: $body_text;
+        text-transform: capitalize;
+        color: $grey_text;
+        padding: 6px 0;
+      }
+
+      &>li:hover {
+        color: $primary_blue;
+      }
+    }
+
+    .contents-checkbox {
+      display: none;
+    }
+
+    .contents-checkbox:checked + .contents-second-level {
+      height: auto;
+      max-height: 500px;
+    }
+  }
+}
+
+.main-panel {
+  width: 74%;
+//  float: right;
+  display: inline-block;
+  @include respond-to(phone) {display: block; width: 100%;}
+  @include respond-to(smalltablet) {display: block; width: 100%;}
+}
+
+.main-page-header {
+  padding: 50px 0;
+  .page-title {
+    text-align: center;
+
+    &>span {
+      border: 2px solid $primary_brown;
+      padding: 10px 30px;
+      @include respond-to(phone) {padding: 0; border: 0;}
+//      @include respond-to(smalltablet) {padding: 0; border: 0;}
+    }
+
+    .zh-page-title {
+      padding-right: 15px;
+      @include respond-to(phone) {padding: 0; display: block;}
+//      @include respond-to(smalltablet) {padding: 0; display: block;}
+    }
+  }
+
+  .brands-spiel {
+    font-family: $heading_text;
+    font-style: italic;
+    color: $primary_brown;
+    max-width: 700px;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 40px;
+  }
+}

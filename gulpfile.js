@@ -19,5 +19,10 @@ elixir(function(mix) {
             "vendor/dropzone.js",
             "/dropzonemanager.js"
         ], "public/js/app.js", "resources/assets/js")
-        .version(["css/app.css", "css/bapp.css", "js/app.js"]);
+        .scripts([
+            "vendor/velocity.min.js",
+            "/menumanager.js",
+            "/contactform.js"
+        ], "public/js/front.js", "resources/assets/js")
+        .version(["css/app.css", "css/bapp.css", "js/app.js", "js/front.js"]);
 });

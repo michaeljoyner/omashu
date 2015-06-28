@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Omashu Admin</title>
+    <title>Omashu Imports</title>
         <!-- Latest compiled and minified CSS for bootstrap-->
-    <link rel="stylesheet" href="/build/css/bapp-b8e3efca.css">
+    <link rel="stylesheet" href="/build/css/app-a93feba8.css">
     <link href='http://fonts.googleapis.com/css?family=Slabo+13px|Open+Sans:400,300' rel='stylesheet' type='text/css'>
 
 
@@ -19,81 +19,96 @@
     <![endif]-->
 </head>
 <body>
-    <div class="main-navbar">
-        <nav>
-    <div class="user-box">
-        <p class="users-name">Osborne Emard</p>
-        <ul class="user-options">
-            <li><a href="/admin/resetpassword">Reset password</a></li>
-            <li><a href="/admin/logout">Logout</a></li>
-        </ul>
-    </div>
-    <div class="branding">
-        Omashu Imports
-    </div>
-    <ul class="top-level">
-        <li><a href="/admin">Home</a></li>
-        <li>
-            <a href="/admin/brands">Brands</a>
-                        </li>
-        <li><a href="/admin/stockists">Stockists</a></li>
-        <li><a href="/admin/register">Users</a></li>
-    </ul>
-</nav>    </div>
-    <div class="main-content">
-            <div class="container show-container">
-        <h1>Our Stockists</h1>
-        <div class="action-bar">
-            <a href="/admin/stockists/create">
-                <div class="btn omashu-btn">Add Stockist</div>
-            </a>
+    <section class="omashu-section banner-section">
+        <header class="home-header">
+            <nav class="front-nav">
+    <a href="/brands">
+        <div class="om-btn">brands</div>
+    </a>
+    <a href="/products">
+        <div class="om-btn">products</div>
+    </a>
+    <a href="/stockists">
+        <div class="om-btn">stockists</div>
+    </a>
+</nav>        </header>
+        <img class="logo-img" src="http://localhost/images/website_logo.png" alt=""/>
+        <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut deleniti, eligendi esse facere, illo in itaque iusto laboriosam maxime molestiae natus praesentium quae qui, quisquam rerum sapiente soluta voluptatem voluptatum?</span></p>
+    </section>
+    <section class="omashu-section brand-section">
+        <h1 class="section-title"><span>brands</span></h1>
+            </section>
+    <section class="omashu-section about-section">
+        <h1 class="section-title white-title"><span>Our Story</span></h1>
+        <div class="two-column">
+            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam consectetur cum distinctio ducimus eum fuga id, incidunt numquam odit optio provident quasi quisquam temporibus unde vel. Blanditiis dolores iste laudantium.</span><span>Accusamus debitis deserunt, dignissimos doloremque eos ex impedit iusto maiores maxime minima nam necessitatibus, nemo, non officiis quam quis repellendus sint vel voluptas voluptatum? Animi asperiores illum iste ullam vero?</span></p>
         </div>
-        <hr/>
-                    <div class="row stockist-row">
-                <div class="col-md-7">
-                    <div class="stockist-box">
-                        <h3><a href="/admin/stockists/terry-ohara">Terry-O&#039;Hara</a></h3>
-                        <p>Address: 190 Zieme Trafficway Suite 124
-Swifthaven, KS 51500</p>
-                        <p>Tel: 217-279-5862x4734</p>
-                        <p>Website: <a href="http://Schneider.biz">Terry-O&#039;Hara</a></p>
-                    </div>
+        <div class="two-column">
+            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus adipisci aliquid amet, aperiam dolor dolore fugiat hic inventore maxime molestiae nisi officia quidem quis quod sint temporibus velit, vitae?</span><span>Atque corporis et eum exercitationem harum officia reprehenderit sint temporibus. At dolorem et harum quaerat tempore. Est, ex hic incidunt ipsa molestiae necessitatibus nobis odit optio quaerat quisquam rem repellat?</span></p>
+        </div>
+        <div class="clearfix"></div>
+    </section>
+    <section class="omashu-section contact-section">
+        <h1 class="section-title"><span>Contact us</span></h1>
+        <p>Contact us for all your needs.</p>
+        <div class="form-row">
+            <form method="POST" action="/contactomashu" id="contact-form" class="contact-omashu-form">
+                <input type="hidden" name="_token" value="hBEfhso7fmzHn3FZM4PPaphxGXdo6g5kzGXBY4Kf"/>
+                <div class="form-half-col">
+                    <label for="name">Your name: </label>
+                    <input type="text" name="name" id="name" required/>
                 </div>
-                <div class="col-md-5">
-                    <img class="show-image" src="http://localhost/images/stock/defaultstockist.png" alt=""/>
+                <div class="form-half-col">
+                    <label for="email">Your email: </label>
+                    <input type="email" name="email" id="email" required/>
                 </div>
+                <div class="form-one-col">
+                    <label for="the_message">How can we help you?</label>
+                    <textarea name="the_message" id="the_message" required></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="om-btn">Send</button>
+                </div>
+                <div class="form-cover">
+                    <p id="cf-thanks">Thank you Mooz. We'll be in touch</p>
+                    <p id="cf-reset">Send another message.</p>
+                </div>
+            </form>
+        </div>
+        <div class="contact-details">
+            <div class="two-column">
+                <h2>zhongwen</h2>
+                <h3>Krissy</h3>
+                <p>M: +(886) 989282789</p>
+                <p>T: +(886) 4 25222019</p>
+                <p>F: +(886) 4 25281709</p>
+                <p>E: contact@omashuimports.com</p>
+                <p>42072台中市豐原區豐原大道六段406號2樓</p>
+                <p>406-2F Fengyuan Blvd. Sec. 6, Fengyuan</p>
+                <p>Dist., Taichung City, Taiwan R.O.C. 42072</p>
             </div>
-                    <div class="row stockist-row">
-                <div class="col-md-7">
-                    <div class="stockist-box">
-                        <h3><a href="/admin/stockists/heidenreich-hackett">Heidenreich-Hackett</a></h3>
-                        <p>Address: 0863 Marguerite Ford Apt. 050
-Ofelialand, OK 46892-3668</p>
-                        <p>Tel: 752-275-1614</p>
-                        <p>Website: <a href="http://Schimmel.com">Heidenreich-Hackett</a></p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <img class="show-image" src="http://localhost/images/stock/defaultstockist.png" alt=""/>
-                </div>
+            <div class="two-column">
+                <h2>engwen</h2>
+                <h3>Ian Brown</h3>
+                <p>M: +(886) 989282789</p>
+                <p>T: +(886) 4 25222019</p>
+                <p>F: +(886) 4 25281709</p>
+                <p>E: contact@omashuimports.com</p>
+                <p>42072台中市豐原區豐原大道六段406號2樓</p>
+                <p>406-2F Fengyuan Blvd. Sec. 6, Fengyuan</p>
+                <p>Dist., Taichung City, Taiwan R.O.C. 42072</p>
             </div>
-                    <div class="row stockist-row">
-                <div class="col-md-7">
-                    <div class="stockist-box">
-                        <h3><a href="/admin/stockists/mayer-christiansen-and-goyette">Mayer, Christiansen and Goyette</a></h3>
-                        <p>Address: 9595 Ulices Highway Apt. 046
-Lake Annabellview, ME 26909</p>
-                        <p>Tel: 00572461356</p>
-                        <p>Website: <a href="http://Hickle.com">Mayer, Christiansen and Goyette</a></p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <img class="show-image" src="http://localhost/images/stock/defaultstockist.png" alt=""/>
-                </div>
-            </div>
-            </div>
-    </div>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+    <footer class="omashu-footer">
 
-    <script src="/build/js/app-9a3fcb4b.js"></script>
-    </body>
+    </footer>
+
+    <script src="http://localhost/js/contactform.js"></script>
+    <script>
+        var contact = new AjaxContactForm(document.getElementById('contact-form'));
+        contact.init();
+    </script>
+</body>
 </html>

@@ -1,3 +1,14 @@
-body {
-  background: blue;
-}
+@import "variables/colours";
+@import "variables/typography";
+@import "mixins/media";
+
+@import "front/partials/basestyles";
+@import "front/partials/bottons";
+@import "front/partials/twocolumnstructure";
+@import "front/partials/hpsection";
+@import "front/partials/nav";
+@import "front/partials/contactform";
+@import "front/partials/footer";
+@import "front/partials/branditem";
+@import "front/partials/productitems";
+@import "front/partials/stockists";

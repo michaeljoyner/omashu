@@ -1,0 +1,68 @@
+.front-nav {
+  width: 100%;
+  padding: 12px;
+  text-align: right;
+  @include respond-to(phone) {padding: 0;}
+  @include respond-to(smalltablet) {padding: 0;}
+
+  #nav-menu-checkbox {
+    display: none;
+  }
+
+  #nav-menu-checkbox:checked + ul {
+    @include respond-to(phone) {height: 130px;}
+    @include respond-to(smalltablet) {height: 130px;}
+  }
+
+  label {
+    display: none;
+    @include respond-to(phone) {display: block; width: 100%; background-color: $primary_brown; color: $white; padding: 10px;}
+    @include respond-to(smalltablet) {display: block; width: 100%; background-color: $primary_brown; color: $white; padding: 10px;}
+
+    .zh-menu-label {
+      @include respond-to(phone) {float: left;}
+      @include respond-to(smalltablet) {float: left;}
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    width: 100%;
+    overflow: hidden;
+    @include respond-to(phone) {height: 0; background-color: $primary_brown; color: white; transition: .5s; margin: 0; padding: 0;}
+    @include respond-to(smalltablet) {height: 0; background-color: $primary_brown; color: white; transition: .5s; margin: 0; padding: 0;}
+
+    li {
+      display: inline-block;
+      @include respond-to(phone) {display: block; margin: 8px 10px; border-top: 1px solid $white; padding: 5px 0;}
+      @include respond-to(smalltablet) {display: block; margin: 8px 10px; border-top: 1px solid $white; padding: 5px 0;}
+    }
+  }
+
+  .om-btn {
+    margin: 0 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    @include respond-to(phone) {margin: 0; padding: 0; border: 0; color: $white; width: 100%;}
+    @include respond-to(smalltablet) {margin: 0; padding: 0; border: 0; color: $white; width: 100%;}
+
+    .btn-zh {
+      @include respond-to(phone) {float: left;}
+      @include respond-to(smalltablet) {float: left;}
+    }
+  }
+}
+
+.front-nav.inverse {
+  background-color: $primary_brown;
+
+  .om-btn {
+    border-color: $white;
+    color: $white;
+
+    &:hover {
+      color: $primary_brown;
+      background-color: $white;
+    }
+  }
+}
