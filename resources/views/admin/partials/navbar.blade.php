@@ -7,10 +7,10 @@
         </ul>
     </div>
     <div class="branding">
-        <a href="/">Omashu Imports</a>
+        <a href="/comingsoon">Omashu Imports</a>
     </div>
     <ul class="top-level">
-        <li><a href="/admin">Home</a></li>
+        <li><a href="/admin/brands">Home</a></li>
         <li>
             <a href="/admin/brands">Brands</a>
                 @if($navBrands->count() > 0)

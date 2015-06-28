@@ -15,7 +15,7 @@ class PagesController extends Controller {
 
     public function dashboard()
     {
-        return 'admin dashboard';
+        return redirect()->to('admin/brands');
     }
 
 }
