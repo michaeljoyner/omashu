@@ -5822,4 +5822,9 @@ h1, h2, h3, h4 {
   color: #983C2D;
   text-transform: uppercase; }
 
+.modal-dialog {
+  z-index: 1111; }
+  .modal-dialog .delete-form {
+    display: inline-block; }
+
 /*# sourceMappingURL=bapp.css.map */

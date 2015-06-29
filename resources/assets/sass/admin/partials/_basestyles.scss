@@ -3,3 +3,11 @@ h1, h2, h3, h4 {
   color: $primary_brown;
   text-transform: uppercase;
 }
+
+.modal-dialog {
+  z-index: 1111;
+
+  .delete-form {
+    display: inline-block;
+  }
+}
