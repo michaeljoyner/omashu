@@ -543,7 +543,7 @@ button.om-btn {
 .front-nav.inverse {
   background-color: #983C2D; }
   .front-nav.inverse .navbranding {
-    display: block; }
+    display: none; }
   .front-nav.inverse .om-btn {
     border-color: #FFFFFF;
     color: #FFFFFF; }
@@ -592,6 +592,11 @@ button.om-btn {
 .contact-omashu-form {
   position: relative;
   overflow: hidden; }
+  .contact-omashu-form .om-btn .btn-zh {
+    padding-right: 8px; }
+    .contact-omashu-form .om-btn .btn-zh:after {
+      content: '/';
+      padding-left: 8px; }
   .contact-omashu-form .form-cover {
     position: absolute;
     width: 100%;
@@ -624,8 +629,42 @@ button.om-btn {
   background-position: left top;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 400px;
-  margin-top: 100px; }
+  min-height: 500px;
+  margin-top: 100px;
+  text-align: center;
+  color: #FFFFFF;
+  position: relative; }
+  @media only screen and (max-width: 413px) {
+    .omashu-footer {
+      min-height: 600px; } }
+  .omashu-footer .footer-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; }
+  .omashu-footer h1 {
+    color: #FFFFFF; }
+  .omashu-footer .icon-box {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    display: none; }
+    .omashu-footer .icon-box img {
+      width: 100%;
+      height: 100%; }
+  .omashu-footer ul {
+    list-style-type: none;
+    padding: 0 10px;
+    width: 100%; }
+    .omashu-footer ul li {
+      display: inline-block;
+      text-transform: uppercase;
+      width: 20%; }
+      @media only screen and (max-width: 413px) {
+        .omashu-footer ul li {
+          display: block;
+          width: 100%; } }
 
 .brand-item {
   border-top: 2px solid #E6E7E8;
@@ -688,12 +727,15 @@ button.om-btn {
   .category-container .category-title {
     text-align: center;
     margin-top: 8px;
+    margin-bottom: 0;
     padding-bottom: 4px; }
   .category-container .category-title-eng {
     color: #939597;
     padding-bottom: 40px;
     text-align: center;
-    font-weight: 300; }
+    font-weight: 300;
+    margin-top: 0;
+    font-size: 100%; }
   .category-container .product-item {
     width: 95%;
     margin: 0 auto 20px;

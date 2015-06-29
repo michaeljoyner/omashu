@@ -17,7 +17,7 @@ trait HasImageTrait {
             return asset($this->attributes['image_path']);
         }
 
-        return null;
+        return asset('images/stock/placeholder_image.jpg');
     }
 
 }

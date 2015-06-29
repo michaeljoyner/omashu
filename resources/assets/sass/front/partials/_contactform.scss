@@ -48,6 +48,16 @@
   position: relative;
   overflow: hidden;
 
+  .om-btn {
+    .btn-zh {
+      padding-right: 8px;
+      &:after {
+        content: '/';
+        padding-left: 8px;
+      }
+    }
+  }
+
   .form-cover {
     position: absolute;
     width: 100%;

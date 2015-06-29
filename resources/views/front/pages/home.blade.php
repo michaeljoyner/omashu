@@ -66,24 +66,19 @@
         </div>
         <div class="contact-details">
             <div class="two-column">
-                <h2>zhongwen</h2>
-                <h3>Krissy</h3>
+                <h3>Krissy Yang</h3>
                 <p>M: +(886) 989282789</p>
                 <p>T: +(886) 4 25222019</p>
                 <p>F: +(886) 4 25281709</p>
-                <p>E: contact@omashuimports.com</p>
+                <p>E: krissy@omashuimports.com</p>
                 <p>42072台中市豐原區豐原大道六段406號2樓</p>
-                <p>406-2F Fengyuan Blvd. Sec. 6, Fengyuan</p>
-                <p>Dist., Taichung City, Taiwan R.O.C. 42072</p>
             </div>
             <div class="two-column">
-                <h2>engwen</h2>
                 <h3>Ian Brown</h3>
-                <p>M: +(886) 989282789</p>
+                <p>M: +(886) 984096396</p>
                 <p>T: +(886) 4 25222019</p>
                 <p>F: +(886) 4 25281709</p>
-                <p>E: contact@omashuimports.com</p>
-                <p>42072台中市豐原區豐原大道六段406號2樓</p>
+                <p>E: ian@omashuimports.com</p>
                 <p>406-2F Fengyuan Blvd. Sec. 6, Fengyuan</p>
                 <p>Dist., Taichung City, Taiwan R.O.C. 42072</p>
             </div>
