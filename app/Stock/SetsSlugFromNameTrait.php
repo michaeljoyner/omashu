@@ -15,8 +15,18 @@ trait SetsSlugFromNameTrait {
 
     public function setNameAttribute($name)
     {
+        $counter = 0;
         $this->attributes['name'] = $name;
-        $this->attributes['slug'] = Str::slug($name);
+        if($this->where('slug', Str::slug($name))->count() > 0) {
+            $counter += 1;
+            while($this->where('slug', Str::slug($name.$counter))->count() > 0) {
+                $counter += 1;
+            }
+            $this->attributes['slug'] = Str::slug($name.$counter);
+        } else {
+            $this->attributes['slug'] = Str::slug($name);
+        }
+
     }
 
 }
