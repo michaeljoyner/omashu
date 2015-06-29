@@ -4,7 +4,12 @@
     @include('front.partials.nav', ['extraClassName' => ' inverse'])
     <header class="main-page-header">
         <h1 class="page-title"><span><span class="zh-page-title">配合商店</span>stockists</span></h1>
-        <p class="brands-spiel"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi autem delectus deleniti dolorum eius et, eum id labore laudantium maiores nemo nobis, praesentium provident quas qui quod vel voluptas.</span></p>
+        <p class="brands-spiel">
+            <span>請洽以下經銷商</span>
+            <br/>
+            <span class="seperator">~</span>
+            <span>Find our products at these fine retailers.</span>
+        </p>
     </header>
     <div class="twocol-wrapper">
         <div class="side-menu">

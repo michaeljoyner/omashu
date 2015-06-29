@@ -7,6 +7,7 @@
         <p class="brands-spiel">
             <span>我們堅決相信我們進口的產品；其品質是達到國外及國內商品品質管制標準。這樣一來，你們絕對可以相信我們的產品。</span>
             <br/>
+            <span class="seperator">~</span>
             <span>Omashu firmly believes in what we import. We ensure quality by endorsing products which meet standards set by foreign and domestic regulatory agencies. That way, you can believe in what we import, too.</span>
         </p>
     </header>

@@ -23,8 +23,15 @@
     }
 
     .zh-title {
-      padding-right: 15px;
+      padding-right: 10px;
       @include respond-to(phone) {padding-right: 0; display: block;}
+
+      &:after {
+        content: '/';
+        padding-left: 10px;
+
+        @include respond-to(phone) {display: none;}
+      }
     }
     &.white-title span {
       border-color: $white;
@@ -77,11 +84,16 @@
       font-style: italic;
       line-height: 1.6;
       @include respond-to(largetablet) {max-width: 700px;}
+
+      &:first-of-type {
+        margin-bottom: 20px;
+      }
     }
 
     .home-header {
       @include respond-to(phone) {margin: 0 -1em;}
       @include respond-to(smalltablet) {margin: 0 -1em;}
+      @include respond-to(largetablet) {margin: 0 -1em;}
     }
   }
 

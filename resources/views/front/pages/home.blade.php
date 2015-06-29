@@ -94,7 +94,6 @@
 @endsection
 
 @section('bodyscripts')
-    <script src="{{ asset('js/contactform.js') }}"></script>
     <script>
         var contact = new AjaxContactForm(document.getElementById('contact-form'));
         contact.init();

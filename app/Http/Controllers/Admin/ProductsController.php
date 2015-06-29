@@ -63,6 +63,8 @@ class ProductsController extends Controller {
             $productData['is_available'] = 0;
 
             return $productData;
+        } else {
+            $productData['is_available'] = 1;
         }
 
         return $productData;

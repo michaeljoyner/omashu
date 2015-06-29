@@ -79,7 +79,13 @@
     .zh-page-title {
       padding-right: 15px;
       @include respond-to(phone) {padding: 0; display: block;}
-//      @include respond-to(smalltablet) {padding: 0; display: block;}
+
+      &:after {
+        content: '/';
+        padding-left: 15px;
+
+        @include respond-to(phone) {display: none;}
+      }
     }
   }
 
@@ -87,10 +93,15 @@
     font-family: $heading_text;
     font-style: italic;
     color: $primary_brown;
-    max-width: 700px;
+    max-width: 740px;
     padding: 20px;
     margin: 0 auto;
     text-align: center;
     padding-top: 40px;
+
+    .seperator {
+      display: block;
+      padding: 10px 0;
+    }
   }
 }

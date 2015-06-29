@@ -41,7 +41,7 @@ h1, h2, h3, h4 {
     color: #FFFFFF;
     background-color: #983C2D; }
   .om-btn .btn-zh {
-    padding-right: 30px; }
+    padding-right: 15px; }
 
 button.om-btn {
   background-color: transparent;
@@ -142,15 +142,24 @@ button.om-btn {
         .main-page-header .page-title .zh-page-title {
           padding: 0;
           display: block; } }
+      .main-page-header .page-title .zh-page-title:after {
+        content: '/';
+        padding-left: 15px; }
+        @media only screen and (max-width: 413px) {
+          .main-page-header .page-title .zh-page-title:after {
+            display: none; } }
   .main-page-header .brands-spiel {
     font-family: "Slabo 13px", Helvetica, Ariel, sans-serif;
     font-style: italic;
     color: #983C2D;
-    max-width: 700px;
+    max-width: 740px;
     padding: 20px;
     margin: 0 auto;
     text-align: center;
     padding-top: 40px; }
+    .main-page-header .brands-spiel .seperator {
+      display: block;
+      padding: 10px 0; }
 
 .omashu-section {
   padding: 50px 1em;
@@ -172,11 +181,17 @@ button.om-btn {
       text-transform: uppercase;
       color: #983C2D; }
     .omashu-section .section-title .zh-title {
-      padding-right: 15px; }
+      padding-right: 10px; }
       @media only screen and (max-width: 413px) {
         .omashu-section .section-title .zh-title {
           padding-right: 0;
           display: block; } }
+      .omashu-section .section-title .zh-title:after {
+        content: '/';
+        padding-left: 10px; }
+        @media only screen and (max-width: 413px) {
+          .omashu-section .section-title .zh-title:after {
+            display: none; } }
     .omashu-section .section-title.white-title span {
       border-color: #FFFFFF;
       color: #FFFFFF; }
@@ -236,10 +251,15 @@ button.om-btn {
       @media only screen and (min-width: 606px) and (max-width: 900px) {
         .omashu-section.banner-section p {
           max-width: 700px; } }
+      .omashu-section.banner-section p:first-of-type {
+        margin-bottom: 20px; }
     @media only screen and (max-width: 413px) {
       .omashu-section.banner-section .home-header {
         margin: 0 -1em; } }
     @media only screen and (min-width: 414px) and (max-width: 605px) {
+      .omashu-section.banner-section .home-header {
+        margin: 0 -1em; } }
+    @media only screen and (min-width: 606px) and (max-width: 900px) {
       .omashu-section.banner-section .home-header {
         margin: 0 -1em; } }
   .omashu-section.brand-section .brand-row {
@@ -333,21 +353,63 @@ button.om-btn {
 .front-nav {
   width: 100%;
   padding: 12px;
-  text-align: right; }
+  text-align: right;
+  position: relative; }
   @media only screen and (max-width: 413px) {
     .front-nav {
       padding: 0; } }
   @media only screen and (min-width: 414px) and (max-width: 605px) {
     .front-nav {
       padding: 0; } }
+  @media only screen and (min-width: 606px) and (max-width: 900px) {
+    .front-nav {
+      padding: 0; } }
+  .front-nav .navbranding {
+    max-width: 25%;
+    display: none;
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0; }
+    @media only screen and (max-width: 413px) {
+      .front-nav .navbranding {
+        width: 123px;
+        height: 20px;
+        left: 0;
+        right: 0;
+        top: 10px;
+        margin: 0 auto; } }
+    @media only screen and (min-width: 414px) and (max-width: 605px) {
+      .front-nav .navbranding {
+        width: 123px;
+        height: 20px;
+        left: 0;
+        right: 0;
+        top: 10px;
+        margin: 0 auto; } }
+    @media only screen and (min-width: 606px) and (max-width: 900px) {
+      .front-nav .navbranding {
+        width: 123px;
+        height: 20px;
+        left: 0;
+        right: 0;
+        top: 10px;
+        margin: 0 auto; } }
   .front-nav #nav-menu-checkbox {
     display: none; }
   @media only screen and (max-width: 413px) {
     .front-nav #nav-menu-checkbox:checked + ul {
-      height: 130px; } }
+      height: auto;
+      max-height: 180px; } }
   @media only screen and (min-width: 414px) and (max-width: 605px) {
     .front-nav #nav-menu-checkbox:checked + ul {
-      height: 130px; } }
+      height: auto;
+      max-height: 180px; } }
+  @media only screen and (min-width: 606px) and (max-width: 900px) {
+    .front-nav #nav-menu-checkbox:checked + ul {
+      height: auto;
+      max-height: 180px; } }
   .front-nav label {
     display: none; }
     @media only screen and (max-width: 413px) {
@@ -364,10 +426,20 @@ button.om-btn {
         background-color: #983C2D;
         color: #FFFFFF;
         padding: 10px; } }
+    @media only screen and (min-width: 606px) and (max-width: 900px) {
+      .front-nav label {
+        display: block;
+        width: 100%;
+        background-color: #983C2D;
+        color: #FFFFFF;
+        padding: 10px; } }
     @media only screen and (max-width: 413px) {
       .front-nav label .zh-menu-label {
         float: left; } }
     @media only screen and (min-width: 414px) and (max-width: 605px) {
+      .front-nav label .zh-menu-label {
+        float: left; } }
+    @media only screen and (min-width: 606px) and (max-width: 900px) {
       .front-nav label .zh-menu-label {
         float: left; } }
   .front-nav ul {
@@ -377,6 +449,7 @@ button.om-btn {
     @media only screen and (max-width: 413px) {
       .front-nav ul {
         height: 0;
+        max-height: 0;
         background-color: #983C2D;
         color: white;
         transition: .5s;
@@ -385,6 +458,16 @@ button.om-btn {
     @media only screen and (min-width: 414px) and (max-width: 605px) {
       .front-nav ul {
         height: 0;
+        max-height: 0;
+        background-color: #983C2D;
+        color: white;
+        transition: .5s;
+        margin: 0;
+        padding: 0; } }
+    @media only screen and (min-width: 606px) and (max-width: 900px) {
+      .front-nav ul {
+        height: 0;
+        max-height: 0;
         background-color: #983C2D;
         color: white;
         transition: .5s;
@@ -399,6 +482,12 @@ button.om-btn {
           border-top: 1px solid #FFFFFF;
           padding: 5px 0; } }
       @media only screen and (min-width: 414px) and (max-width: 605px) {
+        .front-nav ul li {
+          display: block;
+          margin: 8px 10px;
+          border-top: 1px solid #FFFFFF;
+          padding: 5px 0; } }
+      @media only screen and (min-width: 606px) and (max-width: 900px) {
         .front-nav ul li {
           display: block;
           margin: 8px 10px;
@@ -422,15 +511,39 @@ button.om-btn {
         border: 0;
         color: #FFFFFF;
         width: 100%; } }
+    @media only screen and (min-width: 606px) and (max-width: 900px) {
+      .front-nav .om-btn {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        color: #FFFFFF;
+        width: 100%; } }
     @media only screen and (max-width: 413px) {
       .front-nav .om-btn .btn-zh {
         float: left; } }
     @media only screen and (min-width: 414px) and (max-width: 605px) {
       .front-nav .om-btn .btn-zh {
         float: left; } }
+    @media only screen and (min-width: 606px) and (max-width: 900px) {
+      .front-nav .om-btn .btn-zh {
+        float: left; } }
+    .front-nav .om-btn .btn-zh:after {
+      content: '/';
+      padding-left: 15px; }
+      @media only screen and (max-width: 413px) {
+        .front-nav .om-btn .btn-zh:after {
+          display: none; } }
+      @media only screen and (min-width: 414px) and (max-width: 605px) {
+        .front-nav .om-btn .btn-zh:after {
+          display: none; } }
+      @media only screen and (min-width: 606px) and (max-width: 900px) {
+        .front-nav .om-btn .btn-zh:after {
+          display: none; } }
 
 .front-nav.inverse {
   background-color: #983C2D; }
+  .front-nav.inverse .navbranding {
+    display: block; }
   .front-nav.inverse .om-btn {
     border-color: #FFFFFF;
     color: #FFFFFF; }
@@ -500,7 +613,8 @@ button.om-btn {
       left: 0;
       bottom: 15px;
       padding-right: 15px;
-      text-align: right; }
+      text-align: right;
+      cursor: pointer; }
   .contact-omashu-form.closed .form-cover {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0); }

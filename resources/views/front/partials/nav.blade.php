@@ -1,4 +1,5 @@
 <nav class="front-nav{{ $extraClassName }}">
+    <img class="navbranding" src="{{ asset('images/front/navbranding.png') }}" alt="omashu branding"/>
     <label for="nav-menu-checkbox"><span class="zh-menu-label">選單</span>Menu</label>
     <input type="checkbox" id="nav-menu-checkbox" name="nav-menu-checkbox"/>
     <ul>
