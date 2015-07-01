@@ -32,8 +32,10 @@
             <section id="{{ $brand->slug }}">
                 @foreach($brand->categories as $category)
                 <div id="{{ $category->slug }}" class="category-container">
-                    <h1 class="category-title">{{ $category->zh_name }}</h1>
-                    <h2 class="category-title-eng">{{ $category->name }}</h2>
+                    <header class="category-title-box">
+                        <h1 class="category-title">{{ $category->zh_name }}</h1>
+                        <h2 class="category-title-eng">{{ $category->name }}</h2>
+                    </header>
                     @foreach($category->products as $product)
                         <div class="product-item">
                             <div class="product-image-box">
