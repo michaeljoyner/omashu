@@ -27,10 +27,10 @@
     <section class="omashu-section about-section">
         <h1 lang="en" class="section-title white-title"><span><span class="zh-title">我們的故事</span>Our Story</span></h1>
         <div class="two-column">
-            <p>Omashu Imports exists to provide merchandise of impeccable quality. Established by a husband and wife from Canada and Taiwan, our goal is to find honest, trustworthy suppliers who refuse to compromise on the integrity of what they produce.  We believe in what we import, and our suppliers believe in us to expand their reach into new markets around the globe.</p>
+            <p>Omashu 進口公司的存在，是要供應品質無瑕疵的產品。我們是ㄧ對加拿大籍及台灣籍夫婦創立的公司。我們的目標是尋求誠實，可信賴的供應商；拒絕將其產品的誠信度作為妥協。我們深信我們進口產品的品質；我們的供應商也信任我們能將供應商的產品推展至全球市場。</p>
         </div>
         <div class="two-column">
-            <p>Omashu 進口公司的存在，是要供應品質無瑕疵的產品。我們是ㄧ對加拿大籍及台灣籍夫婦創立的公司。我們的目標是尋求誠實，可信賴的供應商；拒絕將其產品的誠信度作為妥協。我們深信我們進口產品的品質；我們的供應商也信任我們能將供應商的產品推展至全球市場。</p>
+            <p>Omashu Imports exists to provide merchandise of impeccable quality. Established by a husband and wife from Canada and Taiwan, our goal is to find honest, trustworthy suppliers who refuse to compromise on the integrity of what they produce.  We believe in what we import, and our suppliers believe in us to expand their reach into new markets around the globe.</p>
         </div>
         <div class="clearfix"></div>
     </section>
