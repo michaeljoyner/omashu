@@ -7,6 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Omashu Imports</title>
     @yield('head')
+    @yield('seotags')
     <!-- Latest compiled and minified CSS for bootstrap-->
     <link rel="stylesheet" href="{{ elixir("css/app.css") }}">
     <link href='http://fonts.googleapis.com/css?family=Slabo+13px|Open+Sans:400,300' rel='stylesheet' type='text/css'>

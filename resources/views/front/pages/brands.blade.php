@@ -1,5 +1,15 @@
 @extends('front.base')
 
+@section('seotags')
+    <meta name="description" content="歡迎參訪以下精選品牌。 Have a look at Omashu Imports' trusted brands."/>
+    @include('front.partials.ogmeta', [
+        'og_url' => 'http://omashuimports.com/brands',
+        'og_title' => 'Our Brands - Omashu Imports',
+        'og_description' => '歡迎參訪以下精選品牌。 Have a look at Omashu Imports\' trusted brands.'
+    ])
+    <link rel="canonical" href="http://omashuimports.com/brands"/>
+@endsection
+
 @section('content')
     @include('front.partials.nav', ['extraClassName' => ' inverse'])
     <header class="main-page-header">

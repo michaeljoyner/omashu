@@ -1,5 +1,15 @@
 @extends('front.base')
 
+@section('seotags')
+    <meta name="description" content="感謝蒞臨緒康貿易有限公司，我們將提供給您最優質的產品與服務。 Welcome to Omashu, home of the finest quality imported goods."/>
+    @include('front.partials.ogmeta', [
+        'og_url' => Request::url(),
+        'og_description' => '感謝蒞臨緒康貿易有限公司，我們將提供給您最優質的產品與服務。 Welcome to Omashu, home of the finest quality imported goods.',
+        'og_title' => 'Omashu Imports'
+    ])
+    <link rel="canonical" href="http://omashuimports.com"/>
+@endsection
+
 @section('content')
     <section class="omashu-section banner-section">
         <header class="home-header">
