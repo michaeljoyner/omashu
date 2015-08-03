@@ -6,7 +6,7 @@
             @include('front.partials.nav', ['extraClassName' => ''])
         </header>
         <img class="logo-img" src="{{ asset('/images/website_logo.png') }}" alt=""/>
-        <p>Omashu 是臺灣ㄧ家進口公司。我們公司致力於尋找全球最優質，品質最高的產品提供給您。</p>
+        <p>緒康貿易有限公司係從台灣出發，秉持著發現好物的精神，把來自世界各地最美好的產品分享給您。</p>
         <p lang="en">Omashu is a Taiwan-based import company. Our company is dedicated to searching the world to bring the highest quality, premium goods to you.</p>
     </section>
     <section class="omashu-section brand-section">
@@ -27,7 +27,7 @@
     <section class="omashu-section about-section">
         <h1 lang="en" class="section-title white-title"><span><span class="zh-title">我們的故事</span>Our Story</span></h1>
         <div class="two-column">
-            <p>Omashu 進口公司的存在，是要供應品質無瑕疵的產品。我們是ㄧ對加拿大籍及台灣籍夫婦創立的公司。我們的目標是尋求誠實，可信賴的供應商；拒絕將其產品的誠信度作為妥協。我們深信我們進口產品的品質；我們的供應商也信任我們能將供應商的產品推展至全球市場。</p>
+            <p>緒康貿易有限公司與加拿大的蒜產品集團The Garlic Box奠基於緊密的信任關係。在食安觀念越來越成熟的現代社會，我們很高興能找到如此尊重食物與客人的合作夥伴。我們對我們產品的自信，來自我們對我們產品的了解。 我們不輕易妥協，也希望您能支持我們對食安的堅持。</p>
         </div>
         <div class="two-column">
             <p>Omashu Imports exists to provide merchandise of impeccable quality. Established by a husband and wife from Canada and Taiwan, our goal is to find honest, trustworthy suppliers who refuse to compromise on the integrity of what they produce.  We believe in what we import, and our suppliers believe in us to expand their reach into new markets around the globe.</p>
