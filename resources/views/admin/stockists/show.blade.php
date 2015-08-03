@@ -7,7 +7,7 @@
             <a href="/admin/stockists/edit/{{ $stockist->id }}">
                 <div class="btn omashu-btn">Edit</div>
             </a>
-            <button type="button" class="btn omashu-btn warning-btn" data-usersname="{{ $stockist->name }}" data-action="/admin/products/{{ $stockist->id }}" data-toggle="modal" data-target="#confirm-delete-modal">
+            <button type="button" class="btn omashu-btn warning-btn" data-usersname="{{ $stockist->name }}" data-action="/admin/stockists/{{ $stockist->id }}" data-toggle="modal" data-target="#confirm-delete-modal">
                 Delete
             </button>
         </div>
