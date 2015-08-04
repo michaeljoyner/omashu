@@ -225,15 +225,23 @@ button.om-btn {
         float: none;
         border-right: 0; } }
   .omashu-section.banner-section {
-    background-image: url(../../images/front/home_banner_14.png);
+    background-image: url(../../images/opt/banner/banner_max.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     padding-bottom: 200px;
     padding-top: 0; }
     @media only screen and (max-width: 413px) {
       .omashu-section.banner-section {
-        background-position: 30% 100%;
-        background-size: auto; } }
+        background-image: url(../../images/opt/banner/banner_413.jpg); } }
+    @media only screen and (min-width: 414px) and (max-width: 605px) {
+      .omashu-section.banner-section {
+        background-image: url(../../images/opt/banner/banner_605.jpg); } }
+    @media only screen and (min-width: 606px) and (max-width: 900px) {
+      .omashu-section.banner-section {
+        background-image: url(../../images/opt/banner/banner_900.jpg); } }
+    @media only screen and (min-width: 901px) and (max-width: 1199px) {
+      .omashu-section.banner-section {
+        background-image: url(../../images/opt/banner/banner_1199.jpg); } }
     .omashu-section.banner-section .logo-img {
       display: block;
       width: 90%;
@@ -291,27 +299,24 @@ button.om-btn {
         max-width: 80%;
         margin: 1em auto; }
   .omashu-section.about-section {
-    background-image: url(../../images/front/about_image_1400.png);
+    background-image: url(../../images/opt/about/about_max.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 0 80%;
+    background-position: 0 100%;
     padding-top: 100px;
     padding-bottom: 100px; }
     @media only screen and (max-width: 413px) {
       .omashu-section.about-section {
-        background-size: auto;
-        background-position: 50% 100%; } }
+        background-image: url(../../images/opt/about/about_413.jpg); } }
     @media only screen and (min-width: 414px) and (max-width: 605px) {
       .omashu-section.about-section {
-        background-size: auto;
-        background-position: 50% 100%; } }
+        background-image: url(../../images/opt/about/about_605.jpg); } }
     @media only screen and (min-width: 606px) and (max-width: 900px) {
       .omashu-section.about-section {
-        background-size: auto;
-        background-position: 50% 100%; } }
+        background-image: url(../../images/opt/about/about_900.jpg); } }
     @media only screen and (min-width: 901px) and (max-width: 1199px) {
       .omashu-section.about-section {
-        background-size: auto; } }
+        background-image: url(../../images/opt/about/about_1199.jpg); } }
     .omashu-section.about-section .two-column p {
       max-width: 50%;
       margin: 0 auto;
@@ -323,6 +328,8 @@ button.om-btn {
       @media only screen and (min-width: 414px) and (max-width: 605px) {
         .omashu-section.about-section .two-column p {
           max-width: 100%; } }
+    .omashu-section.about-section .two-column .about-chinese {
+      line-height: 2; }
   .omashu-section.contact-section > p {
     text-align: center;
     padding-top: 50px; }

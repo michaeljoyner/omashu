@@ -62,12 +62,16 @@
   }
 
   &.banner-section {
-    background-image: url(../../images/front/home_banner_14.png);
+    background-image: url(../../images/opt/banner/banner_max.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     padding-bottom: 200px;
     padding-top: 0;
-    @include respond-to(phone) {background-position: 30% 100%; background-size: auto;}
+    @include respond-to(phone) {background-image: url(../../images/opt/banner/banner_413.jpg);}
+    @include respond-to(smalltablet) {background-image: url(../../images/opt/banner/banner_605.jpg);}
+    @include respond-to(largetablet) {background-image: url(../../images/opt/banner/banner_900.jpg);}
+    @include respond-to(desktop) {background-image: url(../../images/opt/banner/banner_1199.jpg);}
+
     .logo-img {
       display: block;
       width: 90%;
@@ -127,17 +131,17 @@
   }
 
   &.about-section {
-    background-image: url(../../images/front/about_image_1400.png);
+    background-image: url(../../images/opt/about/about_max.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 0 80%;
+    background-position: 0 100%;
     padding-top: 100px;
     padding-bottom: 100px;
 
-    @include respond-to(phone) {background-size: auto; background-position: 50% 100%;}
-    @include respond-to(smalltablet) {background-size: auto; background-position: 50% 100%;}
-    @include respond-to(largetablet) {background-size: auto; background-position: 50% 100%;}
-    @include respond-to(desktop) {background-size: auto;}
+    @include respond-to(phone) {background-image: url(../../images/opt/about/about_413.jpg);}
+    @include respond-to(smalltablet) {background-image: url(../../images/opt/about/about_605.jpg)}
+    @include respond-to(largetablet) {background-image: url(../../images/opt/about/about_900.jpg)}
+    @include respond-to(desktop) {background-image: url(../../images/opt/about/about_1199.jpg)}
 
     .two-column {
       p {
@@ -147,6 +151,10 @@
         color: $white;
         @include respond-to(phone) {max-width: 100%;}
         @include respond-to(smalltablet) {max-width: 100%;}
+      }
+
+      .about-chinese {
+        line-height: 2;
       }
     }
 
