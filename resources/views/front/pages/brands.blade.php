@@ -14,7 +14,7 @@
     @include('front.partials.nav', ['extraClassName' => ' inverse'])
     <header class="main-page-header">
         <h1 class="page-title"><span><span class="zh-page-title">商標</span>Brands</span></h1>
-        <p class="brands-spiel"><span>緒康進口公司以能尋找出世界最頂尖的產品為榮。我們已經與同業建立起堅定且互信的關係。</span>
+        <p class="brands-spiel"><span>緒康貿易有限公司以能尋找出世界最頂尖的產品為榮。我們已經與同業建立起堅定且互信的關係。</span>
             <br/>
             <span class="seperator">~</span>
             <span>Omashu Imports prides itself on seeking out the finest products from around the world. We have established strong, trusting relationships with all of our associates.</span>

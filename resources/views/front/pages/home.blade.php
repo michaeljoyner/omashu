@@ -37,7 +37,7 @@
     <section class="omashu-section about-section">
         <h1 lang="en" class="section-title white-title"><span><span class="zh-title">我們的故事</span>Our Story</span></h1>
         <div class="two-column">
-            <p class="about-chinese">緒康貿易有限公司與加拿大的蒜產品集團The Garlic Box奠基於緊密的信任關係。在食安觀念越來越成熟的現代社會，我們很高興能找到如此尊重食物與客人的合作夥伴。我們對我們產品的自信，來自我們對我們產品的了解。 我們不輕易妥協，也希望您能支持我們對食安的堅持。</p>
+            <p class="about-chinese">緒康貿易有限公司與加拿大的蒜產品集團 The Garlic Box 奠基於緊密的信任關係。在食安觀念越來越成熟的現代社會，我們很高興能找到如此尊重食物與客人的合作夥伴。我們對我們產品的自信，來自我們對我們產品的了解。 我們不輕易妥協，也希望您能支持我們對食安的堅持。</p>
         </div>
         <div class="two-column">
             <p>Omashu Imports exists to provide merchandise of impeccable quality. Established by a husband and wife from Canada and Taiwan, our goal is to find honest, trustworthy suppliers who refuse to compromise on the integrity of what they produce.  We believe in what we import, and our suppliers believe in us to expand their reach into new markets around the globe.</p>
