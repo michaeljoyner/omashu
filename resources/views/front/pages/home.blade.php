@@ -16,7 +16,7 @@
             @include('front.partials.nav', ['extraClassName' => ''])
         </header>
         <img class="logo-img" src="{{ asset('/images/website_logo.png') }}" alt=""/>
-        <p>緒康貿易有限公司係從台灣出發，秉持著發現好物的精神，把來自世界各地最美好的產品分享給您。</p>
+        <p class="zh-header">緒康貿易有限公司係從台灣出發，秉持著發現好物的精神，把來自世界各地最美好的產品分享給您。</p>
         <p lang="en">Omashu is a Taiwan-based import company. Our company is dedicated to searching the world to bring the highest quality, premium goods to you.</p>
     </section>
     <section class="omashu-section brand-section">
