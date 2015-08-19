@@ -15,7 +15,7 @@
     <header class="main-page-header">
         <h1 class="page-title"><span><span class="zh-page-title">產品</span>Products</span></h1>
         <p class="brands-spiel">
-            <span>我們對我們產品的自信，來自我們對我們產品的了解。 我們不輕易妥協，也希望您能支持我們對食安的堅持。</span>
+            <span class="zh-header">我們對我們產品的自信，來自我們對我們產品的了解。 我們不輕易妥協，也希望您能支持我們對食安的堅持。</span>
             <br/>
             <span class="seperator">~</span>
             <span>Omashu firmly believes in what we import. We ensure quality by endorsing products which meet standards set by foreign and domestic regulatory agencies. That way, you can believe in what we import, too.</span>

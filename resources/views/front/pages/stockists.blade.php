@@ -15,7 +15,7 @@
     <header class="main-page-header">
         <h1 class="page-title"><span><span class="zh-page-title">配合商店</span>stockists</span></h1>
         <p class="brands-spiel">
-            <span>請洽以下經銷商</span>
+            <span class="zh-header">請洽以下經銷商</span>
             <br/>
             <span class="seperator">~</span>
             <span>Find our products at these fine retailers.</span>
