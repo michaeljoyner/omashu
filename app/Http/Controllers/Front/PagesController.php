@@ -32,7 +32,7 @@ class PagesController extends Controller {
         $brands = Brand::with(['categories' => function($query)
         {
             $query->with(['products' => function($q) {
-                $q->where('is_available', 1);
+                $q->where('is_available', 1)->orderBy('updated_at', 'desc');
             }]);
         }])->get();
         return view('front.pages.products')->with(compact('brands'));
