@@ -10,7 +10,7 @@
     @yield('seotags')
     <!-- Latest compiled and minified CSS for bootstrap-->
     <link rel="stylesheet" href="{{ elixir("css/app.css") }}">
-    <link href='http://fonts.googleapis.com/css?family=Slabo+13px|Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Slabo+13px|Open+Sans:400,300' rel='stylesheet' type='text/css'>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

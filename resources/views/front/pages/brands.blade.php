@@ -34,7 +34,7 @@
                 <div class="brand-item" id="{{ $brand->slug }}">
                     <img class="brand-image" src="{{ $brand->imageSrc() }}" alt="{{ $brand->name }} image"/>
                     <h2>{{ $brand->name }}</h2>
-                    <p class="brand-description">{{ $brand->description }}</p>
+                    <p class="brand-description">{!! nl2br($brand->description) !!}</p>
                     <p class="brand-location"><span class="item-label">Location: </span>{{ $brand->location }}</p>
                     <p class="brand-site"><span class="item-label">Website: </span><a href="{{ $brand->website }}">{{ $brand->website }}</a></p>
                     <div class="centered-button-box">
