@@ -3,8 +3,8 @@
     <label for="nav-menu-checkbox"><span class="zh-menu-label">選單</span>Menu</label>
     <input type="checkbox" id="nav-menu-checkbox" name="nav-menu-checkbox"/>
     <ul>
-        @if(Request::path() !== 'comingsoon')
-            <li><a href="/comingsoon">
+        @if(Request::path() !== '/')
+            <li><a href="/">
                 <div class="om-btn"><span class="btn-zh">首頁</span>home</div>
             </a></li>
         @endif

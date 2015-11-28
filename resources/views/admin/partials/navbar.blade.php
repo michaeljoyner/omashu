@@ -7,7 +7,7 @@
         </ul>
     </div>
     <div class="branding">
-        <a href="/comingsoon">Omashu Imports</a>
+        <a href="/">Omashu Imports</a>
     </div>
     <ul class="top-level">
         <li><a href="/admin/brands">Home</a></li>

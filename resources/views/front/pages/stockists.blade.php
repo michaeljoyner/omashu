@@ -47,6 +47,9 @@
                     </div>
                 </div>
             @endforeach
+            @if($stockists->count() < 1)
+                <p class="notification-message">We are working hard on getting our stock into retail stores as soon as possible. In the meantime, please feel free to contact us with any requests you may have.</p>
+            @endif
         </div>
         <div class="clearfix"></div>
     </div>
