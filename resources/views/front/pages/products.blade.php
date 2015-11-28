@@ -28,7 +28,7 @@
                 @foreach($brands as $index => $brand)
                     <li>
                         <label for="brand_{{ $index }}">{{ $brand->name }}</label>
-                        <input type="radio" name="menu_toggle_select" id="brand_{{ $index }}" class="contents-checkbox"/>
+                        <input type="radio" name="menu_toggle_select" id="brand_{{ $index }}" class="contents-checkbox" @if($brands->count() === 1) checked @endif/>
                         <ul class="contents-second-level">
                             @foreach($brand->categories as $category)
                                 <li><a class="content-menu-item" href="#{{ $category->slug }}">{{ $category->zh_name }} | {{ $category->name }}</a></li>
