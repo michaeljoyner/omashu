@@ -3,15 +3,25 @@
   height: 100vh;
   padding: 50px 20px;
   text-align: center;
-  background-image: url(../../images/stock/defaultproduct.png);
 
   form {
     max-width: 400px;
     margin: 0 auto;
     text-align: left;
 
+    img {
+      width: 60%;
+      display: block;
+      margin: 30px auto;
+    }
+    
+    .login-title {
+      color: $primary_blue;
+      text-align: center;
+    }
+
     label {
-      color: $white;
+      color: $primary_blue;
     }
   }
 }

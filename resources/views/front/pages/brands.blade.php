@@ -19,6 +19,7 @@
             <span class="seperator">~</span>
             <span>Omashu Imports prides itself on seeking out the finest products from around the world. We have established strong, trusting relationships with all of our associates.</span>
         </p>
+        <p class="upcoming-shop-alert white-text">Shop coming soon</p>
     </header>
     <div class="twocol-wrapper">
         <div class="side-menu">

@@ -20,6 +20,7 @@
             <span class="seperator">~</span>
             <span>Omashu firmly believes in what we import. We ensure quality by endorsing products which meet standards set by foreign and domestic regulatory agencies. That way, you can believe in what we import, too.</span>
         </p>
+        <p class="upcoming-shop-alert white-text">Shop coming soon</p>
     </header>
     <div class="twocol-wrapper">
         <div class="side-menu">

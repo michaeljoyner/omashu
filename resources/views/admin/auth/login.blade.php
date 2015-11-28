@@ -10,9 +10,10 @@
 </head>
 <body>
     <div class="login-form-container">
-        <h1>Please Login</h1>
         @include('admin.partials.errors')
         {!! Form::open(['class' => 'form-horizontal omashu-form']) !!}
+        <h1 class="login-title">Please Login</h1>
+        <img src="/images/website_logo.png" alt="">
         <div class="form-group">
             <label for="email">Email: </label>
             {!! Form::email('email', Input::old('email'), ['class' => 'form-control']) !!}
