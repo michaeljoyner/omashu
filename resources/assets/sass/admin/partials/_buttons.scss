@@ -11,3 +11,19 @@
     background-color: $warning;
   }
 }
+
+.btn.btn-light {
+  font-family: $body_text;
+  text-transform: uppercase;
+  border: 2px solid $primary_blue;
+  color: $primary_blue;
+  background: $white;
+}
+
+.btn.btn-clear-danger {
+  font-family: $body_text;
+  text-transform: uppercase;
+  border: 2px solid $warning;
+  color: $warning;
+  background: $white;
+}

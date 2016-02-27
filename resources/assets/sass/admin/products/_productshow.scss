@@ -1,0 +1,22 @@
+.product-show-details {
+
+  .product-zh_name {
+    color: $grey_text;
+  }
+
+  .quantifier, .quantifier-zh {
+    color: $primary_blue;
+  }
+
+  .product-price {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: $white;
+    background: $primary_blue;
+  }
+}
+
+.product-image-box.single-image-uploader-box {
+  text-align: center;
+}

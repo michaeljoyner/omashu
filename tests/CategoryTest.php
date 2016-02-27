@@ -6,26 +6,36 @@
  * Time: 10:46 AM
  */
 
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laracasts\TestDummy\Factory as TestDummy;
+use Omashu\Stock\Brand;
+use Omashu\Stock\Category;
 
-class CategoryTest extends TestCase {
+class CategoryTest extends TestCase
+{
+
+    use DatabaseMigrations;
 
     /**
      * @test
      */
     public function it_adds_a_new_category_to_a_brand()
     {
-        $this->loginAsRegisteredUser();
+        $this->asLoggedInUser();
 
-        $brand = TestDummy::create('Omashu\Stock\Brand');
-        $categoryData = TestDummy::attributesFor('Omashu\Stock\Category');
-        unset($categoryData['image_path']);
-        unset($categoryData['brand_id']);
+        $brand = factory(Brand::class)->create();
 
-        $this->visit('admin/categories/create/'.$brand->id)
-            ->andSubmitForm('Add Category', $categoryData);
-
-        $this->seeInDatabase('categories', $categoryData);
+        $this->visit('admin/brands/' . $brand->id . '/categories/create/')
+            ->submitForm('Add Category', [
+                'name'        => 'Shoes',
+                'zh_name'     => 'Zhoes',
+                'description' => 'fairly obvious'
+            ])->seeInDatabase('categories', [
+                'brand_id'    => $brand->id,
+                'name'        => 'Shoes',
+                'zh_name'     => 'Zhoes',
+                'description' => 'fairly obvious'
+            ]);
     }
 
     /**
@@ -33,21 +43,17 @@ class CategoryTest extends TestCase {
      */
     public function it_shows_all_categories_for_a_brand()
     {
-        $this->loginAsRegisteredUser();
+        $this->asLoggedInUser();
 
-        $brand = TestDummy::create('Omashu\Stock\Brand');
-        $categories = [];
+        $brand = factory(Brand::class)->create();
+        $categories = factory(Category::class, 3)->create(['brand_id' => $brand->id]);
 
-        foreach(range(1,3) as $index) {
-            $categories[] = TestDummy::create('Omashu\Stock\Category', ['brand_id' => $brand->id]);
-        }
+        $this->visit('admin/brands/' . $brand->slug)
+            ->seePageIs('admin/brands/' . $brand->slug);
 
-        $this->visit('admin/brands/'.$brand->slug)
-            ->andSeePageIs('admin/brands/'.$brand->slug);
-
-        foreach($categories as $category) {
+        $categories->each(function($category) {
             $this->see($category->name);
-        }
+        });
     }
 
     /**
@@ -55,14 +61,14 @@ class CategoryTest extends TestCase {
      */
     public function it_edits_an_existing_category()
     {
-        $this->loginAsRegisteredUser();
+        $this->asLoggedInUser();
 
-        $category = TestDummy::create('Omashu\Stock\Category');
+        $category = factory(Category::class)->create();
 
-        $this->visit('admin/categories/edit/'.$category->id)
-            ->andType('Moozmoozmooz', 'name')
-            ->andPress('Save Changes')
-            ->andSeeInDatabase('categories', ['id' => $category->id, 'name' => 'Moozmoozmooz']);
+        $this->visit('admin/categories/edit/' . $category->id)
+            ->type('Moozmoozmooz', 'name')
+            ->press('Save Changes')
+            ->seeInDatabase('categories', ['id' => $category->id, 'name' => 'Moozmoozmooz']);
     }
 
     /**
@@ -70,21 +76,30 @@ class CategoryTest extends TestCase {
      */
     public function it_shows_a_single_category()
     {
-        $this->loginAsRegisteredUser();
+        $this->asLoggedInUser();
 
-        $category = TestDummy::create('Omashu\Stock\Category');
+        $category = factory(Category::class)->create();
 
-        $this->visit('admin/categories/'.$category->slug)
-            ->andSeePageIs('admin/categories/'.$category->slug)
-            ->andSee($category->name)
-            ->andSee($category->description);
+        $this->visit('admin/categories/' . $category->slug)
+            ->seePageIs('admin/categories/' . $category->slug)
+            ->see($category->name)
+            ->see($category->description);
     }
 
-
-    protected function loginAsRegisteredUser()
+    /**
+     *@test
+     */
+    public function a_category_can_be_deleted()
     {
-        $user = TestDummy::create('Omashu\User');
-        $this->app['auth']->login($user);
+        $this->asLoggedInUser();
+        $this->withoutMiddleware();
+
+        $category = factory(Category::class)->create();
+
+        $response = $this->call('DELETE', '/admin/categories/'.$category->id);
+        $this->assertEquals(302, $response->status());
+
+        $this->notSeeInDatabase('categories', ['id' => $category->id]);
     }
 
 }

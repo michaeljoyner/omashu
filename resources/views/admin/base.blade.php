@@ -20,15 +20,14 @@
     <![endif]-->
 </head>
 <body>
-    <div class="main-navbar">
-        @include('admin.partials.navbar')
-    </div>
-    <div class="main-content">
+    @include('admin.partials.navbar')
+    <div class="container">
         @yield('content')
     </div>
     @include('flash::message')
 
     <script src="{{ elixir("js/app.js") }}"></script>
+    <script src="/js/main.js"></script>
     <script>
         $('.alert-info').delay(2000).hide('slow');
     </script>

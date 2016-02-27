@@ -135,9 +135,13 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
+		Illuminate\Broadcasting\BroadcastServiceProvider::class,
         'Collective\Html\HtmlServiceProvider',
         'Intervention\Image\ImageServiceProvider',
         'Laracasts\Flash\FlashServiceProvider',
+		Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+		Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+		Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
 
 
 		/*
@@ -199,7 +203,7 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
-
+		'Cart' => \Gloudemans\Shoppingcart\Facades\Cart::class
 	],
 
 ];

@@ -1,9 +1,9 @@
 @mixin respond-to($media) {
   @if $media == phone {
-    @media only screen and (max-width: 413px) {@content;}
+    @media only screen and (max-width: 450px) {@content;}
   }
   @else if $media == smalltablet {
-    @media only screen and (min-width: 414px) and (max-width: 605px) {@content;}
+    @media only screen and (min-width: 451px) and (max-width: 605px) {@content;}
   }
   @else if $media == largetablet {
     @media only screen and (min-width: 606px) and (max-width: 900px) {@content;}

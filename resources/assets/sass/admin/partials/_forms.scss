@@ -7,3 +7,26 @@
     border-radius: 0;
   }
 }
+
+.omashu-form.product-form {
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .fifty-fifty {
+    .form-control {
+      width: 97%;
+    }
+  }
+
+  .form-control.short {
+    width: 40%;
+  }
+}
+
+.omashu-form.narrow {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}

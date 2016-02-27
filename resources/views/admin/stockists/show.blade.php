@@ -1,5 +1,9 @@
 @extends('admin.base')
 
+@section('head')
+    <meta id="x-token" property="CSRF-token" content="{{ Session::token() }}"/>
+@stop
+
 @section('content')
     <div class="conatiner show-container">
         <h1>{{ $stockist->name }}</h1>
@@ -18,8 +22,12 @@
                 <p><strong>Tel: </strong>{{ $stockist->phone }}</p>
                 <p><strong>Website: </strong><a href="{{ $stockist->website }}">{{ $stockist->name }}</a></p>
             </div>
-            <div class="col-md-5">
-                <img class="show-image" src="{{ $stockist->imageSrc() }}" alt=""/>
+            <div class="col-md-5 single-image-uploader-box">
+                <singleupload default="{{ $stockist->coverPic() }}"
+                              url="/admin/api/uploads/stockists/{{ $stockist->id }}/image"
+                              shape="square"
+                              size="large"
+                ></singleupload>
             </div>
         </div>
     </div>
@@ -32,5 +40,8 @@
             $(this).find('.delete-form').attr('action', $(e.relatedTarget).data('action'));
             $(this).find('.users-name').html($(e.relatedTarget).data('usersname'));
         });
+    </script>
+    <script>
+        new Vue({el: 'body'});
     </script>
 @endsection

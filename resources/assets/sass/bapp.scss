@@ -1,8 +1,13 @@
-@import "vendor/bootstrap";
-@import "admin/partials/dropzone";
 @import "variables/colours";
+$navbar-inverse-bg: $primary_blue;
+$navbar-inverse-color: $white;
+$navbar-inverse-link-active-color: $warning;
+$navbar-inverse-link-color: $white;
+$navbar-border-radius: 0;
+
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "admin/partials/dropzone";
 @import "variables/typography";
-@import "admin/partials/structure";
 @import "admin/partials/buttons";
 @import "admin/partials/navbar";
 @import "admin/partials/dropzonepreview";
@@ -18,3 +23,7 @@
 
 @import "partials/general";
 @import "admin/partials/basestyles";
+@import "admin/partials/singleimage";
+@import "admin/products/productshow";
+@import "admin/shipping/shipping";
+@import "admin/orders/index";

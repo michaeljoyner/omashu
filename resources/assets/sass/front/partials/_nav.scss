@@ -3,9 +3,9 @@
   padding: 12px;
   text-align: right;
   position: relative;
-  @include respond-to(phone) {padding: 0;}
-  @include respond-to(smalltablet) {padding: 0;}
-  @include respond-to(largetablet) {padding: 0;}
+  @include respond-to(phone) {padding: 0; display: none;}
+  @include respond-to(smalltablet) {padding: 0; display: none;}
+  @include respond-to(largetablet) {padding: 0; display: none;}
 
   .navbranding {
     max-width: 25%;
@@ -15,10 +15,6 @@
     top: 0;
     bottom: 0;
     margin: auto 0;
-
-    @include respond-to(phone) {width: 123px; height: 20px; left: 0; right: 0; top: 10px; margin: 0 auto;}
-    @include respond-to(smalltablet) {width: 123px; height: 20px; left: 0; right: 0; top: 10px; margin: 0 auto;}
-    @include respond-to(largetablet) {width: 123px; height: 20px; left: 0; right: 0; top: 10px; margin: 0 auto;}
   }
 
   #nav-menu-checkbox {
@@ -26,38 +22,24 @@
   }
 
   #nav-menu-checkbox:checked + ul {
-    @include respond-to(phone) {height: auto; max-height: 180px;}
-    @include respond-to(smalltablet) {height: auto; max-height: 180px;}
-    @include respond-to(largetablet) {height: auto; max-height: 180px;}
+
   }
 
   label {
     display: none;
-    @include respond-to(phone) {display: block; width: 100%; background-color: $primary_brown; color: $white; padding: 10px;}
-    @include respond-to(smalltablet) {display: block; width: 100%; background-color: $primary_brown; color: $white; padding: 10px;}
-    @include respond-to(largetablet) {display: block; width: 100%; background-color: $primary_brown; color: $white; padding: 10px;}
+
 
     .zh-menu-label {
-      @include respond-to(phone) {float: left;}
-      @include respond-to(smalltablet) {float: left;}
-      @include respond-to(largetablet) {float: left;}
+
     }
   }
 
   ul {
     list-style-type: none;
     width: 100%;
-    overflow: hidden;
-    @include respond-to(phone) {height: 0; max-height: 0; background-color: $primary_brown; color: white; transition: .5s; margin: 0; padding: 0;}
-    @include respond-to(smalltablet) {height: 0; max-height: 0; background-color: $primary_brown; color: white; transition: .5s; margin: 0; padding: 0;}
-    @include respond-to(largetablet) {height: 0; max-height: 0; background-color: $primary_brown; color: white; transition: .5s; margin: 0; padding: 0;}
-
 
     li {
       display: inline-block;
-      @include respond-to(phone) {display: block; margin: 8px 10px; border-top: 1px solid $white; padding: 5px 0;}
-      @include respond-to(smalltablet) {display: block; margin: 8px 10px; border-top: 1px solid $white; padding: 5px 0;}
-      @include respond-to(largetablet) {display: block; margin: 8px 10px; border-top: 1px solid $white; padding: 5px 0;}
     }
   }
 
@@ -65,22 +47,14 @@
     margin: 0 1em;
     padding-left: 1em;
     padding-right: 1em;
-    @include respond-to(phone) {margin: 0; padding: 0; border: 0; color: $white; width: 100%;}
-    @include respond-to(smalltablet) {margin: 0; padding: 0; border: 0; color: $white; width: 100%;}
-    @include respond-to(largetablet) {margin: 0; padding: 0; border: 0; color: $white; width: 100%;}
+
+    @include respond-to(desktop) {margin: 0 .5em; padding-left: .5em; padding-right: .5em;}
 
     .btn-zh {
-      @include respond-to(phone) {float: left;}
-      @include respond-to(smalltablet) {float: left;}
-      @include respond-to(largetablet) {float: left;}
 
       &:after {
         content: '/';
         padding-left: 15px;
-
-        @include respond-to(phone) {display: none;}
-        @include respond-to(smalltablet) {display: none;}
-        @include respond-to(largetablet) {display: none;}
       }
     }
   }

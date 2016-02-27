@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call('UserTableSeeder');
         $this->call('ProductSeeder');
         $this->call('StockistSeeder');
+        $this->call('ShippingRuleSeeder');
     }
 
 }
@@ -28,9 +29,7 @@ class UserTableSeeder extends Seeder
 
     public function run()
     {
-        DB::table('users')->truncate();
-
-        TestDummy::create('Omashu\User', ['email' => 'joe@example.com']);
+        factory(\Omashu\User::class)->create(['email' => 'joe@example.com', 'password' => 'password']);
     }
 }
 
@@ -39,27 +38,12 @@ class ProductSeeder extends Seeder
 
     public function run()
     {
-        DB::table('brands')->delete();
+        $brand = factory(\Omashu\Stock\Brand::class)->create();
+        $categories = factory(\Omashu\Stock\Category::class, 3)->create(['brand_id' => $brand->id]);
 
-        $brands = [];
-
-        foreach (range(1, 3) as $index) {
-            $brands[] = TestDummy::create('Omashu\Stock\Brand');
-        }
-
-        $categories = [];
-
-        foreach ($brands as $brand) {
-            foreach(range(1,3) as $number) {
-                $categories[] = TestDummy::create('Omashu\Stock\Category', ['brand_id' => $brand->id]);
-            }
-        }
-
-        foreach ($categories as $category) {
-            foreach(range(1,5) as $count) {
-                TestDummy::create('Omashu\Stock\Product', ['category_id' => $category->id]);
-            }
-        }
+        $categories->each(function($category) {
+            factory(\Omashu\Stock\Product::class, 3)->create(['category_id' => $category->id]);
+        });
     }
 }
 
@@ -68,6 +52,14 @@ class StockistSeeder extends Seeder
 
     public function run()
     {
-        TestDummy::times(3)->create('Omashu\Stock\Stockist');
+        factory(Omashu\Stock\Stockist::class, 3)->create();
+    }
+}
+
+class ShippingRuleSeeder extends Seeder
+{
+    public function run()
+    {
+        factory(\Omashu\Shipping\ShippingRule::class)->create(['name' => 'general']);
     }
 }

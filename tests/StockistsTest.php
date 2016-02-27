@@ -6,62 +6,71 @@
  * Time: 11:27 PM
  */
 
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laracasts\TestDummy\Factory as TestDummy;
+use Omashu\Stock\Stockist;
 
-class StockistsTest extends TestCase {
+class StockistsTest extends TestCase
+{
+
+    use DatabaseMigrations;
 
     /**
      * @test
      */
     public function it_shows_all_stockists()
     {
-        $this->loginAsRegisteredUser();
-        $stockists = [];
-
-        foreach(range(1,3) as $index) {
-            $stockists[] = TestDummy::create('Omashu\Stock\Stockist');
-        }
+        $this->asLoggedInUser();
+        $stockists = factory(Stockist::class, 3)->create();
 
         $this->visit('admin/stockists')
-            ->andSeePageIs('admin/stockists');
+            ->seePageIs('admin/stockists');
 
-        foreach($stockists as $stockist) {
+        $stockists->each(function ($stockist) {
             $this->see($stockist->name);
-        }
+        });
 
     }
 
     /**
      * @test
      */
-    public function it_adds_a_new_product()
+    public function it_adds_a_new_stockist()
     {
-        $this->loginAsRegisteredUser();
-
-        $stockistDetails = TestDummy::attributesFor('Omashu\Stock\Stockist');
-        unset($stockistDetails['image_path']);
-        $stockistDetails['website'] = 'http://'.$stockistDetails['website'];
+        $this->asLoggedInUser();
 
         $this->visit('admin/stockists/create')
-            ->andSubmitForm('Add Stockist', $stockistDetails)
-            ->andSeeInDatabase('stockists', $stockistDetails);
+            ->submitForm('Add Stockist', [
+                'name' => 'SupeCity',
+                'address' => '123 Sesame street',
+                'zh_address' => '台中市南區工學一街182號',
+                'phone' => '12345',
+                'website' => 'city.com'
+            ])
+            ->seeInDatabase('stockists', [
+                'name' => 'SupeCity',
+                'address' => '123 Sesame street',
+                'zh_address' => '台中市南區工學一街182號',
+                'phone' => '12345',
+                'website' => 'http://city.com'
+            ]);
     }
 
     /**
      * @test
      */
-    public function it_shows_a_single_product()
+    public function it_shows_a_single_stockist()
     {
-        $this->loginAsRegisteredUser();
+        $this->asLoggedInUser();
 
-        $stockist = TestDummy::create('Omashu\Stock\Stockist');
+        $stockist = factory(Stockist::class)->create();
 
-        $this->visit('admin/stockists/'.$stockist->slug)
-            ->andSeePageIs('admin/stockists/'.$stockist->slug)
-            ->andSee($stockist->name)
-            ->andSee($stockist->address)
-            ->andSee($stockist->phone)
-            ->andSee($stockist->website);
+        $this->visit('admin/stockists/' . $stockist->slug)
+            ->seePageIs('admin/stockists/' . $stockist->slug)
+            ->see($stockist->name)
+            ->see($stockist->address)
+            ->see($stockist->phone)
+            ->see($stockist->website);
     }
 
     /**
@@ -69,26 +78,35 @@ class StockistsTest extends TestCase {
      */
     public function it_edits_an_existing_stockist()
     {
-        $this->loginAsRegisteredUser();
+        $this->asLoggedInUser();
 
-        $stockist = TestDummy::create('Omashu\Stock\Stockist');
+        $stockist = factory(Stockist::class)->create();
 
-        $this->visit('admin/stockists/edit/'.$stockist->id)
-            ->andSeePageIs('admin/stockists/edit/'.$stockist->id)
-            ->andType('Moozilicious', 'name')
-            ->andType('Nantun massive', 'address')
-            ->andPress('Save Changes')
-            ->andSeeInDatabase('stockists', [
-                'id' => $stockist->id,
-                'name' => 'Moozilicious',
+        $this->visit('admin/stockists/edit/' . $stockist->id)
+            ->seePageIs('admin/stockists/edit/' . $stockist->id)
+            ->type('Moozilicious', 'name')
+            ->type('Nantun massive', 'address')
+            ->press('Save Changes')
+            ->seeInDatabase('stockists', [
+                'id'      => $stockist->id,
+                'name'    => 'Moozilicious',
                 'address' => 'Nantun massive'
             ]);
     }
 
-    protected function loginAsRegisteredUser()
+    /**
+     *@test
+     */
+    public function a_stockist_may_be_deleted()
     {
-        $user = TestDummy::create('Omashu\User');
-        $this->app['auth']->login($user);
+        $this->asLoggedInUser();
+        $stockist = factory(Stockist::class)->create();
+
+        $this->withoutMiddleware();
+        $response = $this->call('DELETE', '/admin/stockists/'.$stockist->id);
+        $this->assertEquals(302, $response->status());
+
+        $this->notSeeInDatabase('stockists', ['id' => $stockist->id]);
     }
 
 }

@@ -3,13 +3,14 @@
   background-position: left top;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 400px;
+  min-height: 300px;
   margin-top: 100px;
   text-align: center;
   color: $white;
   position: relative;
 
   @include respond-to(phone) {min-height: 600px;}
+  @include respond-to(smalltablet) {min-height: 600px;}
 
   .footer-content {
     position: absolute;
@@ -34,16 +35,87 @@
     }
   }
 
+  .links-section, .contact-details {
+    width: 48%;
+    display: inline-block;
+
+    @include respond-to(phone) {width: 100%; display: block;}
+    @include respond-to(smalltablet) {width: 100%; display: block;}
+
+    h1 {
+      font-size: 16px;
+      margin-bottom: 0;
+
+      @include respond-to(phone) {font-size: 32px; margin-bottom: 16px;}
+    }
+  }
+
+  .links-section {
+    h1 {
+      text-align: left;
+      padding-left: 15%;
+
+      @include respond-to(phone) {text-align: center; padding-left: 0;}
+      @include respond-to(smalltablet) {text-align: center; padding-left: 0;}
+    }
+  }
+
+  .contact-details p {
+    text-align: right;
+    margin-top: 7px;
+    font-size: 90%;
+
+    @include respond-to(phone) {text-align: center; padding-left: 0;}
+    @include respond-to(smalltablet) {text-align: center; padding-left: 0;}
+  }
+
+  .contact-details h1 {
+    text-align: right;
+    padding-right: 15%;
+
+    @include respond-to(phone) {text-align: center; padding-right: 0;}
+    @include respond-to(smalltablet) {text-align: center; padding-right: 0;}
+  }
+
+  .credit {
+    margin: 0 0 4px;
+    font-size: 90%;
+    opacity: .7;
+    transition: .3s;
+    transform: translate3d(0,0,0);
+
+    &:hover {
+      transform: scale(1.2) translate3d(0,-10px,0);
+      opacity: 1;
+      color: #F47C24;
+
+      a {
+        color: #6FCCE2;
+      }
+    }
+  }
+
+
+
   ul {
     list-style-type: none;
     padding: 0 10px;
     width: 100%;
+    margin-top: 7px;
+    text-align: left;
+
+    @include respond-to(phone) {text-align: center;}
+    @include respond-to(smalltablet) {text-align: center;}
 
     li {
       display: inline-block;
       text-transform: uppercase;
-      width: 20%;
-      @include respond-to(phone) {display: block; width: 100%;}
+      width: auto;
+      padding: 0 5px;
+      text-align: left;
+      font-size: 90%;
+      @include respond-to(phone) {display: block; width: 100%; text-align: center; padding: 10px 5px;}
+      @include respond-to(smalltablet) {display: block; width: 100%; text-align: center; padding: 10px 5px;}
     }
   }
 }

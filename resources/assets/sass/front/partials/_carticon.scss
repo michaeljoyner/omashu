@@ -1,0 +1,71 @@
+#cart-box {
+  position: relative;
+
+  .cart-count {
+    position: absolute;
+    top: -80px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    font-weight: 700;
+
+    @include respond-to(phone) {top: 14px; right: 12px; background: $primary_brown; color: $white; z-index: 999;}
+    @include respond-to(smalltablet) {top: 14px; right: 12px; background: $primary_brown; color: $white; z-index: 999;}
+    @include respond-to(largetablet) {top: 14px; right: 12px; background: $primary_brown; color: $white; z-index: 999;}
+    @include respond-to(desktop) {top: -77px; right: 11px;}
+  }
+
+  .cart-detail {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translate3d(0,-180px,0);
+    padding: 10px 1em;
+    text-align: left;
+    opacity: 0;
+    transition: .5s;
+    background: $white;
+    color: $primary_brown;
+    width: 83.5%;
+    left: 1em;
+    border: 2px solid brown;
+    border-top: none;
+    z-index: -99;
+    max-width: 300px;
+
+    p {
+      margin: 5px;
+    }
+  }
+
+  &.open {
+    .cart-detail {
+      transform: translate3d(0,0,0);
+      opacity: 1;
+      background: $white;
+      z-index: 999;
+    }
+  }
+
+  .cart-alert-header {
+    .cart-svg, h3 {
+      display: inline-block;
+      color: $primary_brown;
+      padding: .5em;
+      vertical-align: middle;
+    }
+
+
+  }
+
+  .om-btn {
+    width: 95%;
+    margin: .5em auto;
+    text-align: center;
+  }
+
+}

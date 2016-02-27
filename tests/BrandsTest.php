@@ -6,27 +6,30 @@
  * Time: 3:28 PM
  */
 
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laracasts\TestDummy\Factory as TestDummy;
+use Omashu\Stock\Brand;
 
-class BrandsTest extends TestCase {
+class BrandsTest extends TestCase
+{
+
+    use DatabaseMigrations;
 
     /**
      * @test
      */
     public function it_shows_all_the_brands()
     {
-        $this->loginAsRegisteredUser();
-        $brands = [];
+        $this->asLoggedInUser();
 
-        foreach(range(1,3) as $index) {
-            $brands[] = TestDummy::create('Omashu\Stock\Brand');
-        }
+        $brands = factory(Brand::class, 3)->create();
 
         $this->visit('admin/brands');
 
-        foreach($brands as $brand) {
+        $brands->each(function ($brand) {
             $this->see($brand->name);
-        }
+        });
+
     }
 
     /**
@@ -34,15 +37,24 @@ class BrandsTest extends TestCase {
      */
     public function it_can_add_new_brands()
     {
-        $this->loginAsRegisteredUser();
-
-        $brandData = TestDummy::attributesFor('Omashu\Stock\Brand');
-        unset($brandData['image_path']);
-        $brandData['website'] = 'http://'.$brandData['website'];
+        $this->asLoggedInUser();
 
         $this->visit('admin/brands/create')
-            ->andSubmitForm('Add Brand', $brandData)
-            ->andSeeInDatabase('brands', $brandData);
+            ->submitForm('Add Brand', [
+                'name' => 'Cola',
+                'tagline' => 'Life is good',
+                'zh_tagline' => 'Life is good',
+                'description' => 'Liquid stuff',
+                'website' => 'cola.com',
+                'location' => 'Murica'
+            ])->seeInDatabase('brands', [
+                'name' => 'Cola',
+                'tagline' => 'Life is good',
+                'zh_tagline' => 'Life is good',
+                'description' => 'Liquid stuff',
+                'website' => 'http://cola.com',
+                'location' => 'Murica'
+            ]);
     }
 
     /**
@@ -50,14 +62,14 @@ class BrandsTest extends TestCase {
      */
     public function it_edits_an_existing_brand()
     {
-        $this->loginAsRegisteredUser();
+        $this->asLoggedInUser();
 
-        $brand = TestDummy::create('Omashu\Stock\Brand');
+        $brand = factory(Brand::class)->create();
 
-        $this->visit('admin/brands/edit/'.$brand->id)
-            ->andType('Mooz is super cool', 'tagline')
-            ->andPress('Save Changes')
-            ->andSeeInDatabase('brands', ['id' => $brand->id, 'tagline' => 'Mooz is super cool']);
+        $this->visit('admin/brands/edit/' . $brand->id)
+            ->type('Mooz is super cool', 'tagline')
+            ->press('Save Changes')
+            ->seeInDatabase('brands', ['id' => $brand->id, 'tagline' => 'Mooz is super cool']);
     }
 
     /**
@@ -65,20 +77,29 @@ class BrandsTest extends TestCase {
      */
     public function it_shows_a_single_brand()
     {
-        $this->loginAsRegisteredUser();
+        $this->asLoggedInUser();
 
-        $brand = TestDummy::create('Omashu\Stock\Brand');
+        $brand = factory(Brand::class)->create();
 
-        $this->visit('admin/brands/'.$brand->slug)
-            ->andSee($brand->name)
-            ->andSee($brand->description)
-            ->andSeePageIs('admin/brands/'.$brand->slug);
+        $this->visit('admin/brands/' . $brand->slug)
+            ->see($brand->name)
+            ->see($brand->description)
+            ->seePageIs('admin/brands/' . $brand->slug);
     }
 
-    protected function loginAsRegisteredUser()
+    /**
+     *@test
+     */
+    public function a_brand_can_be_deleted()
     {
-        $user = TestDummy::create('Omashu\User');
-        $this->app['auth']->login($user);
+        $brand = factory(Brand::class)->create();
+
+        $this->withoutMiddleware();
+
+        $response = $this->call('DELETE', '/admin/brands/'.$brand->id);
+        $this->assertEquals(302, $response->status());
+
+        $this->notSeeInDatabase('brands', ['id' => $brand->id]);
     }
 
 }

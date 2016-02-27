@@ -1,5 +1,9 @@
 @extends('admin.base')
 
+@section('head')
+    <meta id="x-token" property="CSRF-token" content="{{ Session::token() }}"/>
+@stop
+
 @section('content')
     <div class="container show-container show-category">
         <h1>{{ $category->name }}</h1>
@@ -16,8 +20,12 @@
             <div class="col-md-7">
                 <p>{{ $category->description }}</p>
             </div>
-            <div class="col-md-5">
-                <img src="{{ $category->imageSrc() }}" alt=""/>
+            <div class="col-md-5 single-image-uploader-box">
+                <singleupload default="{{ $category->coverPic() }}"
+                              url="/admin/api/uploads/categories/{{ $category->id }}/image"
+                              shape="square"
+                              size="large"
+                ></singleupload>
             </div>
         </div>
         <hr/>
@@ -34,7 +42,7 @@
                 <h4><a href="/admin/products/{{ $product->slug }}">{{ $product->name }}</a></h4>
                 <p>{{ $product->quantifier }}</p>
                 <a href="/admin/products/{{ $product->slug }}">
-                    <img src="{{ $product->imageSrc() }}" alt=""/>
+                    <img src="{{ $product->coverPic() }}" alt=""/>
                 </a>
             </div>
         @endforeach
@@ -48,5 +56,8 @@
             $(this).find('.delete-form').attr('action', $(e.relatedTarget).data('action'));
             $(this).find('.users-name').html($(e.relatedTarget).data('usersname'));
         });
+    </script>
+    <script>
+        new Vue({el: 'body'});
     </script>
 @endsection

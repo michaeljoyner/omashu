@@ -1,0 +1,193 @@
+.cart-item {
+  display: inline-block;
+  width: 85%;
+  @include respond-to(phone) {width: 100%;}
+  @include respond-to(smalltablet) {width: 100%;}
+  @include respond-to(largetablet) {width: 100%;}
+
+  .product-thumb {
+    width: 100px;
+    vertical-align: middle;
+
+    @include respond-to(phone) {width: 50px; height: 50px; border-radius: 50%; vertical-align: top;}
+    @include respond-to(smalltablet) {width: 50px; height: 50px; border-radius: 50%; vertical-align: top;}
+    @include respond-to(largetablet) {width: 111px; height: 111px; border-radius: 0; vertical-align: top; margin-right: 20px;}
+  }
+
+  .cart-item-detail-container {
+    display: inline-block;
+    width: 88%;
+
+    .item-description {
+      width: 50%;
+
+      @include respond-to(phone) {display: block; width: 100%;}
+      @include respond-to(smalltablet) {display: block; width: 100%;}
+      @include respond-to(largetablet) {display: block; width: 100%;}
+    }
+
+    .item-price {
+      width: 20%;
+
+      @include respond-to(phone) {display: block; width: 100%; padding: 10px 0;
+        text-align: left;}
+      @include respond-to(smalltablet) {display: block; width: 100%; padding: 10px 0;
+        text-align: left;}
+      @include respond-to(largetablet) {display: block; width: 100%; padding: 10px 0;
+        text-align: left;}
+    }
+
+    .editing-block {
+      display: inline-block;
+      width: 14%;
+
+      @include respond-to(phone) {padding-top: 15px; width: 50%;}
+      @include respond-to(smalltablet) {padding-top: 15px; width: 50%;}
+      @include respond-to(largetablet) {padding-top: 15px; width: 50%;}
+    }
+
+    @include respond-to(phone) {width: 77%;}
+    @include respond-to(smalltablet) {width: 77%;}
+    @include respond-to(largetablet) {width: 77%;}
+  }
+
+  .item-description {
+    color: $dark_text;
+    font-size: 110%;
+    vertical-align: middle;
+    margin: 0 50px;
+    width: 45%;
+    display: inline-block;
+
+    @include respond-to(phone) {margin: 0 5px; width: 70%; font-size: 100%;}
+    @include respond-to(smalltablet) {margin: 0 5px; width: 70%; font-size: 100%;}
+    @include respond-to(largetablet) {margin: 0 5px; width: 70%; font-size: 100%;}
+  }
+
+  .newqty-input {
+    width: 36px;
+    height: 32px;
+    padding-left: 5px;
+    vertical-align: middle;
+
+
+    &[disabled] {
+      font-size: 130%;
+      border-color: transparent;
+    }
+  }
+
+  .item-price {
+    display: inline-block;
+    width: 8%;
+    text-align: center;
+  }
+
+  .edit-btn {
+    height: 32px;
+    border: 1px solid $primary_blue;
+    color: $primary_blue;
+    display: inline-block;
+    padding: 2px 10px;
+    line-height: 32px;
+    vertical-align: middle;
+    cursor: default;
+
+    .edit-svg {
+      display: block;
+    }
+
+    .save-svg {
+      display: none;
+    }
+
+    &.edit {
+      .edit-svg {
+        display: none;
+      }
+
+      .save-svg {
+        display: block;
+      }
+    }
+
+  }
+
+
+}
+
+.cart-list {
+  list-style-type: none;
+  padding: 10px;
+  margin-top: -60px;
+}
+
+.cart-list-item {
+  margin: 20px auto;
+  display: block;
+  max-width: 1100px;
+  position: relative;
+  padding-top: 20px;
+  border-top: 1px solid $grey_text;
+
+  .remove-btn {
+    display: inline-block;
+    height: 32px;
+    vertical-align: middle;
+    padding: 2px 10px;
+    color: $warning;
+    border: 1px solid $warning;
+    line-height: 32px;
+    cursor: default;
+
+    @include respond-to(phone) {position: absolute; bottom: 2px; right: 10px;}
+    @include respond-to(smalltablet) {position: absolute; bottom: 2px; right: 10px;}
+    @include respond-to(largetablet) {position: absolute; bottom: 2px; right: 10px;}
+  }
+}
+
+.main-page-header {
+
+  .shipping-banner {
+    padding: 20px 20px;
+    margin: 40px auto;
+    width: 600px;
+    max-width: 90%;
+    border: 2px solid $primary_blue;
+    transform: translate3d(-9999px, 0, 0);
+    animation-duration: .5s;
+    animation-name: slideInFromLeft;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+
+
+    p {
+      text-align: center;
+      font-size: 150%;
+      font-weight: 700;
+      color: $primary_blue;
+      margin: 6px 0;
+    }
+  }
+}
+
+#cart-list-container {
+
+  .subtotal-and-shipping {
+    max-width: 1100px;
+    margin: 2em auto;
+    text-align: right;
+    border-top: 1px solid $grey_text;
+    padding-right: 17px;
+
+    p {
+      text-align: right;
+    }
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {transform: translate3d(-999px, 0, 0)}
+  100% {transform: translate3d(0, 0, 0)}
+}

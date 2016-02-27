@@ -10,7 +10,7 @@
                         <img src="{{ asset('images/website_logo.png') }}" alt=""/>
                         <p class="user-name">{{ $user->name }}</p>
                         <p class="user-email">{{ $user->email }}</p>
-                        <button type="button" class="btn omashu-btn warning-btn" data-usersname="{{ $user->name }}" data-action="/admin/registration/delete/{{ $user->id }}" data-toggle="modal" data-target="#confirm-delete-modal">
+                        <button type="button" class="btn omashu-btn warning-btn" data-usersname="{{ $user->name }}" data-action="/admin/users/{{ $user->id }}" data-toggle="modal" data-target="#confirm-delete-modal">
                             Delete
                         </button>
                     </div>

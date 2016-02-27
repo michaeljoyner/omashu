@@ -1,5 +1,5 @@
 var elixir = require('laravel-elixir');
-
+require('laravel-elixir-vueify');
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -12,17 +12,20 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass(['app.scss', 'bapp.scss'])
+    mix.sass('app.scss')
+        .sass('bapp.scss')
+        .browserify('main.js')
+        .browserify('frontb.js')
         .scripts([
             "vendor/jquery.js",
             "vendor/bootstrap.js",
             "vendor/dropzone.js",
             "/dropzonemanager.js"
-        ], "public/js/app.js", "resources/assets/js")
+        ], 'public/js/app.js')
         .scripts([
             "vendor/velocity.min.js",
             "/menumanager.js",
             "/contactform.js"
-        ], "public/js/front.js", "resources/assets/js")
+        ], 'public/js/front.js')
         .version(["css/app.css", "css/bapp.css", "js/app.js", "js/front.js"]);
 });

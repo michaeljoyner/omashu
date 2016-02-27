@@ -1,0 +1,23 @@
+.rules-list {
+  .rule-card {
+    max-width: 500px;
+    margin: 30px;
+    padding: 10px;
+    border: 1px solid $primary_blue;
+
+    header {
+      text-transform: uppercase;
+      color: $primary_blue;
+      font-family: $heading_text;
+    }
+
+    .body {
+      padding: 15px;
+    }
+
+    footer {
+      text-align: right;
+    }
+  }
+}
+

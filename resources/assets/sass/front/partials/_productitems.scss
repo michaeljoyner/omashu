@@ -48,6 +48,15 @@
       border-bottom: 0;
     }
 
+    .om-btn.view-btn {
+      width: 30%;
+      text-align: center;
+
+      @include respond-to(phone) {width: 100%;}
+      @include respond-to(smalltablet) {width: 100%;}
+      @include respond-to(largetablet) {width: 100%;}
+    }
+
     .product-image-box {
       width: 30%;
       display: inline-block;
@@ -60,6 +69,8 @@
       img {
         width: 100%;
       }
+
+
     }
 
     .product-description-box {
@@ -86,6 +97,13 @@
         padding: 4px 0;
         font-style: italic;
       }
+
+      .product-price {
+        color: $primary_blue;
+        font-weight: 700;
+      }
+
+
     }
   }
 }

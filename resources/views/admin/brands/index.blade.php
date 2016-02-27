@@ -13,7 +13,7 @@
                 <h4><a href="/admin/brands/{{ $brand->slug }}">{{ $brand->name }}</a></h4>
                 <p class="tagline">{{ $brand->tagline }}</p>
                 <a href="/admin/brands/{{ $brand->slug }}">
-                    <img src="{{ $brand->imageSrc() }}" alt=""/>
+                    <img src="{{ $brand->coverPic() }}" alt=""/>
                 </a>
                 <a href="{{ $brand->website }}"><div class="btn omashu-btn">website</div></a>
             </div>

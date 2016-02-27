@@ -10,9 +10,9 @@ use Omashu\Stock\Category;
 
 class CategoriesController extends Controller {
 
-    public function create($brand_id)
+    public function create($brandId)
     {
-        $brand = Brand::findOrFail($brand_id);
+        $brand = Brand::findOrFail($brandId);
         $category = new Category();
         return view('admin.categories.create')->with(compact('brand', 'category'));
 	}
@@ -24,10 +24,10 @@ class CategoriesController extends Controller {
         return view('admin.categories.show')->with(compact('category'));
     }
 
-    public function store(CategoryFormRequest $request, $brand_id)
+    public function store(CategoryFormRequest $request, $brandId)
     {
-        $brand = Brand::findOrFail($brand_id);
-        $brand->categories()->create($request->all());
+        $brand = Brand::findOrFail($brandId);
+        $brand->addCategory($request->all());
         flash()->message('New category created. Diversity is great!');
         return redirect()->to('admin/brands/'.$brand->slug);
     }
@@ -54,5 +54,15 @@ class CategoriesController extends Controller {
         flash()->message('Category deleted. All that once was is but memories now.');
         return redirect()->to('admin/brands');
     }
+
+    public function setCoverPic(Request $request, $categoryId)
+    {
+        $this->validate($request, ['file' => 'required|image']);
+        $category = Category::findOrFail($categoryId);
+        $category->setCoverPic($request->file('file'));
+
+        return response()->json('ok');
+    }    
+
 
 }

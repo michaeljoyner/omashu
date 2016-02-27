@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    @section('title')
     <title>Omashu Imports</title>
+    @show
+    <meta id="x-token" property="CSRF-token" content="{{ Session::token() }}"/>
     @yield('head')
     @yield('seotags')
     <!-- Latest compiled and minified CSS for bootstrap-->
@@ -21,9 +24,11 @@
     <![endif]-->
 </head>
 <body>
+@include('front.partials.secondarynav')
 @yield('content')
 <div class="back-to-top-btn">top</div>
 <script src="{{ elixir('js/front.js') }}"></script>
+<script src="/js/frontb.js"></script>
 @yield('bodyscripts')
 </body>
 </html>

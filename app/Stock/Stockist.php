@@ -1,12 +1,15 @@
 <?php namespace Omashu\Stock;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
-class Stockist extends Model {
+class Stockist extends Model implements HasMediaConversions
+{
 
-    use SetsSlugFromNameTrait, HasImageTrait, UsesAbsoluteUrlsTrait;
+    use SetsSlugFromNameTrait, HasCoverPicTrait, UsesAbsoluteUrlsTrait, HasMediaTrait;
 
-	protected $table = 'stockists';
+    protected $table = 'stockists';
 
     protected $fillable = [
         'name',

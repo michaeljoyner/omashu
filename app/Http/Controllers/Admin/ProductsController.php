@@ -28,7 +28,7 @@ class ProductsController extends Controller {
     public function store(ProductFormRequest $request, $category_id)
     {
         $category = Category::findOrFail($category_id);
-        $category->products()->create($this->getProductData($request));
+        $category->addProduct($request->all());
         flash()->message('New product added. I\'m holding thumbs.');
         return redirect()->to('admin/categories/'.$category->slug);
     }
@@ -43,7 +43,7 @@ class ProductsController extends Controller {
     public function update(ProductFormRequest $request, $id)
     {
         $product = Product::findOrFail($id);
-        $product->update($this->getProductData($request));
+        $product->update($request->all());
         flash()->message('Product updated. Keeping things fresh is important');
         return redirect()->to('admin/products/'.$product->slug);
     }
@@ -56,18 +56,26 @@ class ProductsController extends Controller {
         return redirect()->to('admin/brands');
     }
 
-    private function getProductData(ProductFormRequest $request)
+    public function setCoverPic(Request $request, $productId)
     {
-        $productData = $request->all();
-        if (!$request->has('is_available')) {
-            $productData['is_available'] = 0;
+        $this->validate($request, ['file' => 'required|image']);
+        $product = Product::findOrFail($productId);
+        $product->setCoverPic($request->file('file'));
 
-            return $productData;
-        } else {
-            $productData['is_available'] = 1;
-        }
+        return response()->json('ok');
 
-        return $productData;
     }
+
+    public function setAvailability(Request $request, $productId)
+    {
+        $this->validate($request, ['available' => 'required|boolean']);
+
+        $result = Product::findOrFail($productId)->setAvailability($request->available);
+
+        return response()->json(['new_state' => $result]);
+
+    }
+
+
 
 }

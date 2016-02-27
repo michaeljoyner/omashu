@@ -1,5 +1,9 @@
 @extends('admin.base')
 
+@section('head')
+    <meta id="x-token" property="CSRF-token" content="{{ Session::token() }}"/>
+@stop
+
 @section('content')
     <div class="container brand-showarea show-container">
         <h1>{{ $brand->name }}</h1>
@@ -18,8 +22,12 @@
                 <p>{{ $brand->description }}</p>
                 <p>Website: <a href="{{ $brand->website }}">{{ $brand->name }}</a></p>
             </div>
-            <div class="col-sm-5 brand-showimage-box">
-                <img src="{{ $brand->imageSrc() }}" alt=""/>
+            <div class="col-sm-5 brand-showimage-box single-image-uploader-box">
+                <singleupload default="{{ $brand->coverPic() }}"
+                              url="/admin/api/uploads/brands/{{ $brand->id }}/image"
+                              shape="square"
+                              size="large"
+                ></singleupload>
             </div>
         </div>
 
@@ -44,10 +52,8 @@
 @endsection
 
 @section('bodyscripts')
+    @include('admin.partials.deletescript')
     <script>
-        $('#confirm-delete-modal').on('show.bs.modal', function(e) {
-            $(this).find('.delete-form').attr('action', $(e.relatedTarget).data('action'));
-            $(this).find('.users-name').html($(e.relatedTarget).data('usersname'));
-        });
+        new Vue({el: 'body'});
     </script>
 @endsection

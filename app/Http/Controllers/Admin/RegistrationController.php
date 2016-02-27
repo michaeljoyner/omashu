@@ -24,9 +24,9 @@ class RegistrationController extends Controller {
 
     public function delete($id)
     {
-        $users = User::all();
+//        $users = User::all();
 
-        if($users->count() < 2) {
+        if(User::count() < 2) {
             return back();
         }
 

@@ -1,0 +1,64 @@
+.orders-table {
+
+  .order-number:before {
+    content: '';
+    margin-right: 10px;
+    width: 8px;
+    height: 8px;
+    background: grey;
+    display: inline-block;
+    border-radius: 50%;
+  }
+
+  .open {
+    .order-number:before {
+      background: green;
+    }
+    td:nth-child(5) {
+      color: green;
+    }
+  }
+
+  .paid {
+    .order-number:before {
+      background: gold;
+    }
+    td:nth-child(5) {
+      color: gold;
+    }
+  }
+
+  .shipped {
+    .order-number:before {
+      background: dodgerblue;
+    }
+    td:nth-child(5) {
+      color: dodgerblue;
+    }
+  }
+
+  .cancelled {
+    .order-number:before {
+      background: red;
+    }
+    td:nth-child(5) {
+      color: red;
+    }
+  }
+
+  .completed {
+    .order-number:before {
+      background: mediumpurple;
+    }
+    td:nth-child(5) {
+      color: mediumpurple;
+    }
+  }
+
+  
+  .order-number {
+    font-family: $heading_text;
+    text-decoration: underline;
+    font-size: 1.2em;
+  }
+}

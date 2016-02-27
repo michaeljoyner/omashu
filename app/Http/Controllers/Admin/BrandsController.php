@@ -59,4 +59,13 @@ class BrandsController extends Controller {
         return redirect()->to('admin/brands');
     }
 
+    public function setCoverPic(Request $request, $brandId)
+    {
+        $this->validate($request, ['file' => 'required|image']);
+        $brand = Brand::findOrFail($brandId);
+        $brand->setCoverPic($request->file('file'));
+
+        return response()->json('ok');
+    }
+
 }

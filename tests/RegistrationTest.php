@@ -6,26 +6,35 @@
  * Time: 11:25 AM
  */
 
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laracasts\TestDummy\Factory as TestDummy;
+use Omashu\User;
 
 class RegistrationTest extends TestCase
 {
 
-
+    use DatabaseMigrations;
     /**
      * @test
      */
     public function it_registers_a_new_user()
     {
-        $this->loginAsRegisteredUser();
-        $userData = TestDummy::attributesFor('Omashu\User');
-        $formData = array_merge($userData, ['password_confirmation' => 'password']);
+        $this->asLoggedInUser();
+
         $this->visit('/admin/register')
-            ->andSee('Register a New User');
+            ->see('Register a New User');
 
-        $this->submitForm('Register', $formData);
+        $this->submitForm('Register', [
+            'name' => 'Billy the Kid',
+            'email' => 'billy@example.com',
+            'password' => 'password',
+            'password_confirmation' => 'password'
+        ]);
 
-        $this->seeInDatabase('users', ['name' => $userData['name'], 'email' => $userData['email']]);
+        $this->seeInDatabase('users', [
+            'name' => 'Billy the Kid',
+            'email' => 'billy@example.com'
+        ]);
     }
 
     /**
@@ -33,15 +42,18 @@ class RegistrationTest extends TestCase
      */
     public function it_wont_register_a_user_without_a_unique_email_address()
     {
-        $this->loginAsRegisteredUser();
-        TestDummy::create('Omashu\User', ['email' => 'joe@example.com']);
+        $this->asLoggedInUser(); //adds a user with email of joe@example.com
+        $newUserData = [
+            'name' => 'Billy the Kid',
+            'email' => 'joe@example.com',
+            'password' => 'password',
+            'password_confirmation' => 'password'
+        ];
 
-        $newUserData = TestDummy::attributesFor('Omashu\User', ['email' => 'joe@example.com']);
-        $formData = array_merge($newUserData, ['password_confirmation' => 'password']);
         $this->visit('/admin/register')
-            ->andSubmitForm('Register', $formData)
-            ->andSeePageIs('admin/register')
-            ->andSee('there were some problems with your input');
+            ->submitForm('Register', $newUserData)
+            ->seePageIs('admin/register')
+            ->see('there were some problems with your input');
     }
 
     /**
@@ -49,22 +61,46 @@ class RegistrationTest extends TestCase
      */
     public function it_shows_all_registered_users()
     {
-        foreach (range(1, 3) as $index) {
-            ${'user'.$index} = TestDummy::create('Omashu\User');
-        }
+        $loggedInUser = $this->asLoggedInUser();
+        $users = factory(User::class, 3)->create();
 
-        $this->app['auth']->login($user1);
+        $this->visit('admin/register')
+            ->seePageIs('admin/register');
 
-        $this->visit('admin/register')->andSeePageIs('admin/register');
-
-        foreach(range(1,3) as $count) {
-            $this->see(${'user'.$count}['email']);
-        }
+        $users->each(function($user) {
+            $this->see($user->name);
+        });
+        $this->see($loggedInUser->name);
     }
 
-    protected function loginAsRegisteredUser()
+    /**
+     *@test
+     */
+    public function a_user_can_be_deleted()
     {
-        $user = TestDummy::create('Omashu\User');
-        $this->app['auth']->login($user);
+        $this->asLoggedInUser();
+
+        $user = factory(User::class)->create();
+
+        $this->withoutMiddleware();
+        $response = $this->call('DELETE', '/admin/users/'.$user->id);
+        $this->assertEquals(302, $response->status());
+
+        $this->notSeeInDatabase('users', ['id' => $user->id]);
+    }
+
+    /**
+     *@test
+     */
+    public function the_final_user_cannot_be_deleted()
+    {
+        $onlyUser = $this->asLoggedInUser();
+
+        $this->withoutMiddleware();
+        $response = $this->call('DELETE', '/admin/users/'.$onlyUser->id);
+        $this->assertEquals(302, $response->status());
+
+        $this->seeInDatabase('users', ['id' => $onlyUser->id]);
+
     }
 }

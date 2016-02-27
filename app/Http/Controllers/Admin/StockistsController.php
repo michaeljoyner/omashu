@@ -59,4 +59,13 @@ class StockistsController extends Controller {
         flash()->message('Stockist deleted. People come, people go, cest la vie');
         return redirect()->to('admin/stockists');
     }
+
+    public function setCoverPic(Request $request, $stockistId)
+    {
+        $this->validate($request, ['file' => 'required|image']);
+        $stockist = Stockist::findOrFail($stockistId);
+        $stockist->setCoverPic($request->file('file'));
+
+        return response()->json('ok');
+    }
 }

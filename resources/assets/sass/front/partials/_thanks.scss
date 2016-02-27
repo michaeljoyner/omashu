@@ -1,0 +1,26 @@
+.thanksgiving {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 15px;
+
+  @include respond-to(phone) {margin-top: -60px;}
+  @include respond-to(smalltablet) {margin-top: -60px;}
+
+  .thanks-message {
+    color: $dark_text;
+    font-size: 120%;
+
+    @include respond-to(phone) {font-size: 100%;}
+    @include respond-to(smalltablet) {font-size: 100%;}
+
+    .order_number {
+      color: $primary_brown;
+      font-weight: 400;
+    }
+  }
+
+  .button-holder {
+    text-align: center;
+    padding-top: 50px;
+  }
+}

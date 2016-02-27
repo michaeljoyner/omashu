@@ -20,5 +20,7 @@
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_DRIVER" value="sync"/>
         <env name="DB_DRIVER" value="sqlite"/>
+        <env name="MAIL_DRIVER" value="log"/>
+        <env name="MAIL_PRETEND" value="false"/>
     </php>
 </phpunit>
