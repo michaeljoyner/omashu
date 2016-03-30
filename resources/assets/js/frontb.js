@@ -5,47 +5,15 @@ if(document.querySelector('#x-token')) {
     Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#x-token').getAttribute('content');
 }
 
+Vue.component('cartitem', require('./components/Cartitem.vue'));
 
 var app = app || {};
+var menuManager = require('./components/menumanager.js');
 
-//app.cartIcon = new Vue({
-//
-//    el: '#cart-box',
-//
-//    data: {
-//        products: 0,
-//        items: 0,
-//        total: 0,
-//        flash: false
-//    },
-//
-//    ready: function() {
-//      this.sync();
-//    },
-//
-//    methods: {
-//        sync: function(andFlash) {
-//            this.$http.get('/api/cart/summary', function(res) {
-//                this.$set('products', res.products);
-//                this.$set('items', res.items);
-//                this.$set('total', res.total);
-//                if(andFlash) {
-//                    this.flashDetails();
-//                }
-//            }).error(function(res) {
-//               console.log(res);
-//            });
-//        },
-//
-//        flashDetails: function() {
-//            var self = this;
-//            this.flash = true;
-//            window.setTimeout(function() {
-//                self.flash = false;
-//            }, 2000);
-//        }
-//    }
-//});
+app.cartIcon = new Vue(require('./components/carticon.js'));
+app.vueConstructorObjects = {};
+app.vueConstructorObjects.product = require('./components/productvue.js');
+app.vueConstructorObjects.cart = require('./components/cartvue.js');
 
 var toggles = document.querySelectorAll('.sec-nav-toggle');
 
@@ -64,3 +32,4 @@ Array.prototype.slice.call(toggles).forEach(function(toggle) {
 
 window.Vue = Vue;
 window.omashuApp = app;
+window.menuManager = menuManager;

@@ -18,6 +18,7 @@ class Order extends Model
         'phone',
         'address',
         'total_price',
+        'shipping_fee',
         'customer_query',
     ];
 
@@ -63,6 +64,16 @@ class Order extends Model
         }
 
         return 'open';
+    }
+
+    public function archive()
+    {
+        $this->delete();
+    }
+
+    public function scopeArchived($query)
+    {
+        return $query->withTrashed()->whereNotNull('deleted_at');
     }
 
     protected function toggleBooleanAttribute($attributeName, $setTo)

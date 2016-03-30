@@ -46,12 +46,12 @@
 
   .sec-nav-list {
     li {
-      line-height: 2;
+      line-height: 2.4;
       font-family: $heading_text;
       text-transform: uppercase;
       color: $white;
       font-weight: 700;
-      font-size: 150%;
+      font-size: 130%;
       border-bottom: 1px solid lighten($primary_brown, 20%);
     }
   }

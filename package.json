@@ -12,7 +12,8 @@
     "vueify-insert-css": "^1.0.0"
   },
   "dependencies": {
+    "bootstrap-sass": "^3.0.0",
     "laravel-elixir": "^4.0.0",
-    "bootstrap-sass": "^3.0.0"
+    "lodash.throttle": "^4.0.1"
   }
 }

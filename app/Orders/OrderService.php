@@ -49,6 +49,7 @@ class OrderService
             'phone' => $request->phone,
             'customer_query' => $request->customer_query,
             'address' => $request->address,
+            'shipping_fee' => $this->calcShippingFee(),
             'total_price' => $this->getTotalOrderPrice()
         ];
 
@@ -57,7 +58,7 @@ class OrderService
         $this->cartAccess->getCartContents()->each(function($cartItem) {
             $product = Product::findOrFail($cartItem->id);
             $this->model->addItem([
-                'description' => $product->name . ' - ' . $product->quantifier,
+                'description' => $product->zh_name .' | ' . $product->name . ' - ' . $product->quantifier,
                 'quantity' => $cartItem->qty,
                 'unit_price' => $product->price,
                 'product_id' => $product->id
@@ -73,7 +74,12 @@ class OrderService
 
     private function getTotalOrderPrice()
     {
-        return $this->cartAccess->totalPrice() + $this->shippingService->getFeeForAmountOf($this->cartAccess->totalPrice());
+        return $this->cartAccess->totalPrice() + $this->calcShippingFee();
+    }
+
+    private function calcShippingFee()
+    {
+        return $this->shippingService->getFeeForAmountOf($this->cartAccess->totalPrice());
     }
 
 }

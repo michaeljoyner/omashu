@@ -91,6 +91,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::post('shippingrules/{id}', 'ShippingRulesController@update');
 
         Route::get('orders', 'OrdersController@index');
+        Route::get('orders/archived', 'OrdersController@archived');
         Route::get('orders/filter/{status}', 'OrdersController@filterByStatus');
         Route::get('orders/{id}', 'OrdersController@show');
         Route::delete('orders/{id}', 'OrdersController@archive');

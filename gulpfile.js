@@ -24,7 +24,7 @@ elixir(function(mix) {
         ], 'public/js/app.js')
         .scripts([
             "vendor/velocity.min.js",
-            "/menumanager.js",
+            //"/menumanager.js",
             "/contactform.js"
         ], 'public/js/front.js')
         .version(["css/app.css", "css/bapp.css", "js/app.js", "js/front.js"]);

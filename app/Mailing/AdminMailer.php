@@ -25,8 +25,7 @@ class AdminMailer extends Mailer {
 
     public function notifyOfNewOrder($order)
     {
-//        $to = ['ian@omashuimports.com' => 'Ian Brown', 'krissy@omashuimports.com' => 'Krissy'];
-        $to = ['joyner.michael@gmail.com' => 'Michael Joyner'];
+        $to = ['ian@omashuimports.com' => 'Ian Brown', 'krissy@omashuimports.com' => 'Krissy'];
         $from = [$order->email => $order->name];
         $subject = 'New Omashu Online Order Placed #'.$order->order_number;
         $view = 'emails.orders.notify';
@@ -39,7 +38,8 @@ class AdminMailer extends Mailer {
             'address' => $order->address,
             'order_id' => $order->id,
             'order_number' => $order->order_number,
-            'order_total' => $order->total_price
+            'order_total' => $order->total_price,
+            'shipping_fee' => $order->shipping_fee
         ];
 
         $this->sendTo($to, $from, $subject, $view, $data);

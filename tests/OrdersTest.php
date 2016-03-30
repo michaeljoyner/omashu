@@ -87,6 +87,45 @@ class OrdersTest extends TestCase
         $this->assertEquals('complete', $order->status());
     }
 
+    /**
+     *@test
+     */
+    public function an_order_can_be_archived_which_is_just_a_soft_deleted()
+    {
+        $order = factory(Order::class)->create();
+        $this->assertNull($order->deleted_at, 'order should not have a deleted at timestamp');
+
+        $order->archive();
+        $this->assertNotNull($order->deleted_at, 'should have a deleted at timestamp');
+    }
+
+    /**
+     *@test
+     */
+    public function an_order_can_be_restored()
+    {
+        $order = factory(Order::class)->create();
+        $order->archive();
+
+        $order->restore();
+        $this->assertNull($order->deleted_at);
+    }
+
+    /**
+     * @test
+     */
+    public function a_query_can_be_scoped_for_archived_orders_only()
+    {
+        $order = factory(Order::class)->create();
+        $order2 = factory(Order::class)->create();
+        $order3 = factory(Order::class)->create();
+        $order2->archive();
+        $order3->archive();
+        $archived = Order::archived()->get();
+
+        $this->assertCount(2, $archived);
+    }
+
     protected function assertTogglesStatus($order, $toggleMethod, $toggleAttribute)
     {
         $this->assertFalse(!! $order->{$toggleAttribute});

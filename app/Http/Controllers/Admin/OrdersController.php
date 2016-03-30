@@ -25,6 +25,14 @@ class OrdersController extends Controller
         return view('admin.orders.index')->with(compact('orders', 'status'));
     }
 
+    public function archived()
+    {
+        $orders = Order::archived()->latest()->paginate(15);
+        $status = 'archived';
+
+        return view('admin.orders.index')->with(compact('orders', 'status'));
+    }
+
     public function show($id)
     {
         $order = Order::with('items')->findOrFail($id);

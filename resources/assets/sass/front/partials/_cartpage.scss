@@ -191,3 +191,11 @@
   0% {transform: translate3d(-999px, 0, 0)}
   100% {transform: translate3d(0, 0, 0)}
 }
+
+.empty-cart-message {
+  text-align: center;
+}
+
+.empty-cart-message a {
+  color: $primary_blue;
+}

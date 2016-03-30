@@ -6,11 +6,11 @@
         <h1>Omashu Imports</h1>
     </div>
     <ul class="sec-nav-list">
-        <li><a href="/">Home</a></li>
-        <li><a href="/brands">Brands</a></li>
-        <li><a href="/products">Products</a></li>
-        <li><a href="/stockists">Stockists</a></li>
-        {{--<li><a href="/cart">Cart</a></li>--}}
+        <li><a href="/">首頁 / Home</a></li>
+        <li><a href="/brands">商標 / Brands</a></li>
+        <li><a href="/products">產品 / Products</a></li>
+        <li><a href="/stockists">配合商店 / Stockists</a></li>
+        <li><a href="/cart">購物車 / Cart</a></li>
     </ul>
 </nav>
 <div id="primary-toggle" class="sec-nav-toggle">
@@ -19,9 +19,9 @@
         <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
     </svg>
 </div>
-{{--<div id="sec-cart">--}}
-    {{--<a href="/cart">--}}
-        {{--@include('svg.cart')--}}
-    {{--</a>--}}
+<div id="sec-cart">
+    <a href="/cart">
+        @include('svg.cart')
+    </a>
 
-{{--</div>--}}
+</div>

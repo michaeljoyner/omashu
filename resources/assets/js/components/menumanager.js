@@ -1,3 +1,5 @@
+var throttle = require('lodash.throttle')
+
 var menuManager = {
 
     menuList: document.querySelector('.contents-top-level'),
@@ -7,11 +9,12 @@ var menuManager = {
         var elems = document.querySelectorAll('.content-menu-item');
         var mainMenu = document.querySelector('.contents-top-level');
         menuManager.topBtn = document.querySelector('.back-to-top-btn');
-        var i = 0, l = elems.length;
-        for (i; i < l; i++) {
-            elems[i].addEventListener('click', menuManager.scrollTo, false);
-        }
-        window.addEventListener('scroll', menuManager.handleScroll, false);
+
+        Array.prototype.slice.call(elems).forEach(function(el) {
+            el.addEventListener('click', menuManager.scrollTo, false);
+        });
+
+        window.addEventListener('scroll', throttle(menuManager.handleScroll, 100), false);
         menuManager.topBtn.addEventListener('click', menuManager.scrollToTop, false);
     },
 
@@ -21,8 +24,7 @@ var menuManager = {
     },
 
     scrollToTop: function () {
-        var target = document.querySelector('.front-nav');
-        Velocity(target, "scroll", 500);
+        Velocity(document.querySelector('html'), "scroll", 500);
     },
 
     handleScroll: function (ev) {
@@ -46,3 +48,5 @@ var menuManager = {
         }
     }
 }
+
+module.exports = menuManager;

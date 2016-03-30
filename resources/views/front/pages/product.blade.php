@@ -34,7 +34,7 @@
             </section>
             <span class="price">NT${{ $product->price }}</span>
             <label class="qty-label" for="quantity">Qty: </label>
-            <input class="qty-input" type="number" v-model="quantity">
+            <input class="qty-input" min="1" type="number" v-model="quantity">
             <button class="add-btn" v-on:click="addToCart">加入購物車 / Add to cart</button>
         </div>
     </section>
@@ -43,28 +43,6 @@
 
 @section('bodyscripts')
     <script>
-        new Vue({
-            el: '#product-container',
-
-            data: {
-                productId: null,
-                quantity: 1
-            },
-
-            ready: function() {
-                var id = document.querySelector('#product-container').getAttribute('data-product');
-                this.$set('productId', id);
-            },
-
-            methods: {
-                addToCart: function() {
-                    this.$http.post('/api/cart', {product_id: this.productId, quantity: this.quantity}, function(res) {
-                        window.omashuApp.cartIcon.sync(true);
-                    }).error(function(res) {
-                        console.log(res);
-                    })
-                }
-            }
-        });
+        new Vue(omashuApp.vueConstructorObjects.product);
     </script>
 @endsection

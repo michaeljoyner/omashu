@@ -55,7 +55,7 @@ class OrderServiceTest extends TestCase
 
         $this->seeInDatabase('order_items', [
             'order_id' => $order->id,
-            'description' => 'Product One - 10ml',
+            'description' => '大蒜，薑，鹽。 | Product One - 10ml',
             'quantity' => 1,
             'unit_price' => 100,
             'product_id' => 1
@@ -63,11 +63,27 @@ class OrderServiceTest extends TestCase
 
         $this->seeInDatabase('order_items', [
             'order_id' => $order->id,
-            'description' => 'Product Two - 10ml',
+            'description' => '大蒜，薑，鹽。 | Product Two - 10ml',
             'quantity' => 1,
             'unit_price' => 200,
             'product_id' => 2
         ]);
+    }
+
+    /**
+     *@test
+     */
+    public function a_successfully_placed_order_has_a_shipping_fee()
+    {
+        $this->setUpCartWithProducts();
+        $request = new MockCheckoutRequest();
+        $service = new OrderService(new CartAccess(), new ShippingService());
+
+        $service->placeOrder($request);
+        $order = Order::where('name', 'Mooz Joyner')->first();
+
+        $this->assertEquals(200, $order->shipping_fee);
+
     }
 
     /**

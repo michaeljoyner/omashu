@@ -27,6 +27,7 @@
                     @include('svg.trash')
                 </div>
             </li>
+            <p class="empty-cart-message" v-show="! items.length">You have no items in your cart yet. Maybe one of these <a href="/products">products</a> would interest you.</p>
         </ul>
         <div class="subtotal-and-shipping">
             <p class="subtotal">金額 / Subtotal: NT$@{{ subtotal }}</p>
@@ -39,124 +40,10 @@
 
     </section>
     @include('front.partials.footer')
-    <template id="cart-item-template">
-        <div class="cart-item">
-            <img v-bind:src="thumb" alt="" class="product-thumb">
-            <div class="cart-item-detail-container">
-                <span class="item-description">@{{ description }}</span>
-                <span class="item-price">NT$@{{ actualqty * price }}</span>
-                <div class="editing-block">
-                    <input type="number" v-model="newqty" class="newqty-input" :disabled="!editing">
-                    <div class="edit-btn" :class="{'edit': editing}" v-on:click="handleEditClick">
-                        @include('svg.edit')
-                        @include('svg.save')
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </template>
 @endsection
 
 @section('bodyscripts')
     <script>
-        Vue.component('cartitem', {
-            props: ['rowid', 'id', 'description', 'quantity', 'thumb', 'price'],
-
-            template: '#cart-item-template',
-
-            data: function () {
-                return {
-                    newqty: 1,
-                    actualqty: 1,
-                    editing: false
-                }
-            },
-
-            computed: {
-                editTxt: function () {
-                    return this.editing ? 'Save' : 'Edit';
-                }
-            },
-
-            ready: function () {
-                this.$set('newqty', this.quantity);
-                this.$set('actualqty', this.quantity);
-            },
-
-            methods: {
-                handleEditClick: function () {
-                    if (!this.editing) {
-                        this.editing = true;
-                        return;
-                    }
-
-                    this.updateQuantity();
-                },
-
-
-
-                updateQuantity: function () {
-                    this.$http.put('api/cart/' + this.rowid, {quantity: this.newqty}, function () {
-                        this.editing = false;
-                        this.actualqty = this.newqty;
-                        window.omashuApp.cartIcon.sync(true);
-                        this.$dispatch('quantity-updated');
-                    }).error(function (res) {
-                        console.log(res);
-                    });
-                }
-            }
-        });
-
-        var cart = new Vue({
-            el: '#cart-list-container',
-
-            data: {
-                items: [],
-                subtotal: null,
-                shipping: null,
-                total: null
-            },
-
-            ready: function () {
-                this.fetchItems();
-                this.updateTotals();
-            },
-
-            methods: {
-                fetchItems: function () {
-                    this.$http.get('/api/cart', function (res) {
-                        this.$set('items', res);
-                    }).error(function (res) {
-                        console.log(res);
-                    })
-                },
-
-                removeItem: function (item) {
-                    this.$http.delete('/api/cart/' + item.rowid, function () {
-                        this.items.$remove(item);
-                        omashuApp.cartIcon.sync(true);
-                        this.updateTotals();
-                    }).error(function (res) {
-                        console.log(res);
-                    });
-                },
-
-                updateTotals: function () {
-                    this.$http.get('/api/cart/totals', function (res) {
-                        this.$set('subtotal', res.subtotal);
-                        this.$set('shipping', res.shipping);
-                        this.$set('total', res.total);
-                    })
-                }
-            },
-
-            events: {
-                'quantity-updated': function () {
-                    this.updateTotals();
-                }
-            }
-        });
+        var cart = new Vue(omashuApp.vueConstructorObjects.cart);
     </script>
 @endsection

@@ -49,21 +49,21 @@
                     </header>
                     @foreach($category->products as $product)
                         <div class="product-item">
-                            {{--<a href="/product/{{ $product->slug }}">--}}
+                            <a href="/product/{{ $product->slug }}">
                                 <div class="product-image-box">
                                     <img src="{{ $product->coverPic() }}" alt="{{ $product->name }} image"/>
                                 </div>
-                            {{--</a>--}}
+                            </a>
                             <div class="product-description-box">
                                 <h4>{{ $product->zh_name }}</h4>
                                 <p class="product-eng_name">{{ $product->name }}</p>
                                 <p class="product-quantifier">{{ $product->zh_quantifier }}</p>
                                 <p class="product-quantifier">{{ $product->quantifier }}</p>
-                                {{--<p class="product-price">NT${{ $product->price }}</p>--}}
+                                <p class="product-price">NT${{ $product->price }}</p>
                             </div>
-                            {{--<a href="/product/{{ $product->slug }}">--}}
-                                {{--<div class="om-btn view-btn">檢視產品 / View Product</div>--}}
-                            {{--</a>--}}
+                            <a href="/product/{{ $product->slug }}">
+                                <div class="om-btn view-btn">檢視產品 / View Product</div>
+                            </a>
                         </div>
                     @endforeach
                 </div>
