@@ -20,7 +20,7 @@
         <h1 class="product-page-title zhongwen">{{ $product->zh_name }}</h1>
         <h1 class="product-page-title yingwen">{{ $product->name }}</h1>
         <p class="product-quantifier">
-            <span class="zhonwen">{{ $product->zh_quantifier }}</span> / <span class="yingwen">{{ $product->quantifier }}</span>
+            <span class="yingwen">{{ $product->quantifier }}</span>
         </p>
 
     </header>

@@ -18,8 +18,8 @@
                     {!! Form::text('zh_name', null, ['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
-                    <label for="zh_quantifier">Chinese Quantifier</label>
-                    {!! Form::text('zh_quantifier', null, ['class' => 'form-control']) !!}
+                    {{--<label for="zh_quantifier">Chinese Quantifier</label>--}}
+                    {{--{!! Form::text('zh_quantifier', null, ['class' => 'form-control']) !!}--}}
                 </div>
             </div>
         </div>
