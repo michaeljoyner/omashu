@@ -1,0 +1,10 @@
+.quick-add.om-btn {
+  padding: 4px 8px;
+  vertical-align: top;
+
+  &:hover {
+    svg {
+      fill: $white;
+    }
+  }
+}

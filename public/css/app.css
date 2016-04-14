@@ -1260,6 +1260,9 @@ p.notification-message {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); } }
 
+.empty-cart-message {
+  text-align: center; }
+
 .empty-cart-message a {
   color: #428D90; }
 
@@ -1533,5 +1536,11 @@ p.notification-message {
   @media only screen and (min-width: 606px) and (max-width: 900px) {
     #sec-cart {
       display: block; } }
+
+.quick-add.om-btn {
+  padding: 4px 8px;
+  vertical-align: top; }
+  .quick-add.om-btn:hover svg {
+    fill: #FFFFFF; }
 
 /*# sourceMappingURL=app.css.map */

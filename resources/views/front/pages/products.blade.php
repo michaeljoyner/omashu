@@ -38,7 +38,7 @@
                 @endforeach
             </ul>
         </div>
-        <div class="main-panel">
+        <div class="main-panel" id="products-list-vue">
             @foreach($brands as $brand)
             <section id="{{ $brand->slug }}">
                 @foreach($brand->categories as $category)
@@ -64,6 +64,7 @@
                             <a href="/product/{{ $product->slug }}">
                                 <div class="om-btn view-btn">檢視產品 / View Product</div>
                             </a>
+                            <quickadd-button :productid="{{ $product->id }}"></quickadd-button>
                         </div>
                     @endforeach
                 </div>
@@ -79,5 +80,10 @@
 @section('bodyscripts')
     <script>
                 menuManager.init();
+    </script>
+    <script>
+        new Vue({
+            el: '#products-list-vue'
+        });
     </script>
 @endsection

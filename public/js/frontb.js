@@ -11371,6 +11371,41 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":13,"vue-hot-reload-api":4,"vueify-insert-css":14}],16:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("\n\n")
+'use strict';
+
+module.exports = {
+
+    props: ['productid'],
+
+    methods: {
+        addOneToCart: function addOneToCart() {
+            this.$http.post('/api/cart', { product_id: this.productid, quantity: 1 }, function (res) {
+                window.omashuApp.cartIcon.sync(true);
+            }).error(function (res) {
+                console.log(res);
+            });
+        }
+    }
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div class=\"om-btn quick-add\" v-on:click=\"addOneToCart\">\n        <svg fill=\"#983C2D\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M0 0h24v24H0zm18.31 6l-2.76 5z\" fill=\"none\"></path>\n            <path d=\"M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4h-.01l-1.1 2-2.76 5H8.53l-.13-.27L6.16 6l-.95-2-.94-2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.13 0-.25-.11-.25-.25z\"></path>\n        </svg>\n    </div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/Users/mooz/work/omashu/resources/assets/js/components/Quickaddbutton.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache["\n\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"vue":13,"vue-hot-reload-api":4,"vueify-insert-css":14}],17:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -11412,7 +11447,7 @@ module.exports = {
     }
 };
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -11465,7 +11500,7 @@ module.exports = {
     }
 };
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 'use strict';
 
 var throttle = require('lodash.throttle');
@@ -11520,7 +11555,7 @@ var menuManager = {
 
 module.exports = menuManager;
 
-},{"lodash.throttle":2}],19:[function(require,module,exports){
+},{"lodash.throttle":2}],20:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -11550,7 +11585,7 @@ module.exports = {
     }
 };
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 'use strict';
 
 var Vue = require('vue');
@@ -11561,6 +11596,7 @@ if (document.querySelector('#x-token')) {
 }
 
 Vue.component('cartitem', require('./components/Cartitem.vue'));
+Vue.component('quickadd-button', require('./components/Quickaddbutton.vue'));
 
 var app = app || {};
 var menuManager = require('./components/menumanager.js');
@@ -11587,6 +11623,6 @@ window.Vue = Vue;
 window.omashuApp = app;
 window.menuManager = menuManager;
 
-},{"./components/Cartitem.vue":15,"./components/carticon.js":16,"./components/cartvue.js":17,"./components/menumanager.js":18,"./components/productvue.js":19,"vue":13,"vue-resource":6}]},{},[20]);
+},{"./components/Cartitem.vue":15,"./components/Quickaddbutton.vue":16,"./components/carticon.js":17,"./components/cartvue.js":18,"./components/menumanager.js":19,"./components/productvue.js":20,"vue":13,"vue-resource":6}]},{},[21]);
 
 //# sourceMappingURL=frontb.js.map

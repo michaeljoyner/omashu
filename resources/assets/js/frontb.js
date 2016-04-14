@@ -6,6 +6,7 @@ if(document.querySelector('#x-token')) {
 }
 
 Vue.component('cartitem', require('./components/Cartitem.vue'));
+Vue.component('quickadd-button', require('./components/Quickaddbutton.vue'))
 
 var app = app || {};
 var menuManager = require('./components/menumanager.js');
