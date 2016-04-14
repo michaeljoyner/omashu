@@ -25,9 +25,19 @@ class CheckoutRequest extends Request
     {
         return [
             'name' => 'required|max:255',
-            'email' => 'required|email',
+            'email' => 'required|email|confirmed',
             'phone' => 'max:255',
             'address' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => '請填寫您的大名',
+            'address.required' => '請填寫您的地址',
+            'email.required' => '請填寫您的電子信箱',
+            'email.confirmed' => '電子信箱請再次確認無誤'
         ];
     }
 }

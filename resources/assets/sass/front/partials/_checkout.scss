@@ -70,6 +70,10 @@
 
   .checkout-form {
     padding: 10px;
+    
+    .error-box {
+      text-align: center;
+    }
 
     .form-group {
       margin: 1em 0;

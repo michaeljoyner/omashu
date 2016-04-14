@@ -1311,6 +1311,8 @@ p.notification-message {
 
 .customer-form-container .checkout-form {
   padding: 10px; }
+  .customer-form-container .checkout-form .error-box {
+    text-align: center; }
   .customer-form-container .checkout-form .form-group {
     margin: 1em 0;
     max-width: 600px;
