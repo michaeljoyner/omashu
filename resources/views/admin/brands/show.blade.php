@@ -37,7 +37,7 @@
     <div class="container category-listarea show-container">
         <h2>Categories</h2>
         <div class="action-bar">
-            <a href="/admin/categories/create/{{ $brand->id }}">
+            <a href="/admin/brands/{{ $brand->id }}/categories/create">
                 <div class="btn omashu-btn">New Category</div>
             </a>
         </div>

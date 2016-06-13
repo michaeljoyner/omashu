@@ -33,7 +33,7 @@
     <div class="container show-container category-product-list">
     <h2>Products</h2>
         <div class="action-bar">
-            <a href="/admin/products/create/{{ $category->id }}">
+            <a href="/admin/categories/{{ $category->id }}/products/create">
                 <div class="btn omashu-btn">Add Product</div>
             </a>
         </div>
