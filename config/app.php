@@ -12,6 +12,9 @@ return [
 	| application. If disabled, a simple generic error page is shown.
 	|
 	*/
+	'name' => 'Omashu Imports',
+
+	'env' => env('APP_ENV', 'production'),
 
 	'debug' => env('APP_DEBUG', false),
 
@@ -80,7 +83,7 @@ return [
 
 	'key' => env('APP_KEY', 'SomeRandomString'),
 
-	'cipher' => MCRYPT_RIJNDAEL_128,
+	'cipher' => 'AES-256-CBC',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -113,12 +116,9 @@ return [
 		/*
 		 * Laravel Framework Service Providers...
 		 */
-		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',
-		'Illuminate\Bus\BusServiceProvider',
 		'Illuminate\Cache\CacheServiceProvider',
 		'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
-		'Illuminate\Routing\ControllerServiceProvider',
 		'Illuminate\Cookie\CookieServiceProvider',
 		'Illuminate\Database\DatabaseServiceProvider',
 		'Illuminate\Encryption\EncryptionServiceProvider',
@@ -135,20 +135,20 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
+		AltThree\Bus\BusServiceProvider::class,
 		Illuminate\Broadcasting\BroadcastServiceProvider::class,
         'Collective\Html\HtmlServiceProvider',
         'Intervention\Image\ImageServiceProvider',
         'Laracasts\Flash\FlashServiceProvider',
 		Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
 		Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
-		Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
+		Cviebrock\EloquentSluggable\ServiceProvider::class,
 
 
 		/*
 		 * Application Service Providers...
 		 */
 		'Omashu\Providers\AppServiceProvider',
-		'Omashu\Providers\BusServiceProvider',
 		'Omashu\Providers\ConfigServiceProvider',
 		'Omashu\Providers\EventServiceProvider',
 		'Omashu\Providers\RouteServiceProvider',

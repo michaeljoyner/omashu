@@ -12,7 +12,7 @@
             @include('admin.stockists.stockistform', ['stockist' => $stockist, 'formAction' => 'admin/stockists', 'submitText' => 'Add Stockist', 'formId' => 'stockist-create'])
         </div>
         <div class="col-md-5">
-            @include('admin.partials.dropzoneform', ['currentImg' => $stockist->imageSrc(), 'uploadURL' => '/admin/ajaxuploads/stockists/imageupload', 'dzFormId' => 'stockist-pic-dropzone', 'previewId' => 'image-preview'])
+            @include('admin.partials.dropzoneform', ['currentImg' => $stockist->coverPic(), 'uploadURL' => '/admin/ajaxuploads/stockists/imageupload', 'dzFormId' => 'stockist-pic-dropzone', 'previewId' => 'image-preview'])
         </div>
     </div>
 @endsection

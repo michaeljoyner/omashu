@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <img class="show-image" src="{{ $stockist->coverPic() }}" alt=""/>
+                    <img class="show-image" src="{{ $stockist->coverPic('web') }}" alt=""/>
                 </div>
             </div>
         @endforeach

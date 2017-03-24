@@ -1,15 +1,16 @@
 <?php namespace Omashu\Stock;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
-class Category extends Model implements HasMediaConversions, SluggableInterface
+class Category extends Model implements HasMediaConversions
 {
 
-    use SluggableTrait, HasCoverPicTrait, HasMediaTrait;
+    use Sluggable, HasCoverPicTrait, HasMediaTrait;
 
     protected $table = 'categories';
 
@@ -21,10 +22,14 @@ class Category extends Model implements HasMediaConversions, SluggableInterface
         'image_path'
     ];
 
-    protected $sluggable = [
-        'build_from' => 'name',
-        'save_to'    => 'slug',
-    ];
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
 
     public function products()
     {
