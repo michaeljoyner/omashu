@@ -26,7 +26,7 @@
             <div class="brand-row">
                 @foreach($brandRow as $brand)
                     <div class="brand-box">
-                        <a href="/brands#{{ $brand->slug }}"><img src="{{ $brand->imageSrc() }}" alt="" width="350"/></a>
+                        <a href="/brands#{{ $brand->slug }}"><img src="{{ $brand->coverPic() }}" alt="" width="350"/></a>
                         <h4 lang="en">{{ $brand->name }}</h4>
                         <p class="zh-text">{{ $brand->zh_tagline }}</p>
                         <p class="en-text" lang="en">{{ $brand->tagline }}</p>

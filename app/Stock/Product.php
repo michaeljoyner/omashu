@@ -1,5 +1,6 @@
 <?php namespace Omashu\Stock;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -7,10 +8,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
-class Product extends Model implements HasMediaConversions, SluggableInterface
+class Product extends Model implements HasMediaConversions
 {
 
-    use SluggableTrait, HasCoverPicTrait, HasMediaTrait, SoftDeletes;
+    use Sluggable, HasCoverPicTrait, HasMediaTrait, SoftDeletes;
 
     protected $table = 'products';
 
@@ -26,10 +27,14 @@ class Product extends Model implements HasMediaConversions, SluggableInterface
         'write_up'
     ];
 
-    protected $sluggable = [
-        'build_from' => 'name',
-        'save_to'    => 'slug',
-    ];
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
 
     protected $dates = ['deleted_at'];
 
