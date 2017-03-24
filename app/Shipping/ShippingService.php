@@ -41,7 +41,7 @@ class ShippingService
 
     public function getFeeForAmountOf($amount)
     {
-        $fee = $amount > $this->getFreeAbove() ? 0 : $this->getRate();
+        $fee = $amount >= $this->getFreeAbove() ? 0 : $this->getRate();
 
         return intval($fee);
     }
