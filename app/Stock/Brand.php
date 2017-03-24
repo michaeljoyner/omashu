@@ -1,16 +1,15 @@
 <?php namespace Omashu\Stock;
 
-use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
-class Brand extends Model implements HasMediaConversions
+class Brand extends Model implements HasMediaConversions, SluggableInterface
 {
 
-    use Sluggable, HasCoverPicTrait, UsesAbsoluteUrlsTrait, HasMediaTrait;
+    use SluggableTrait, HasCoverPicTrait, UsesAbsoluteUrlsTrait, HasMediaTrait;
 
     protected $table = 'brands';
 
@@ -25,15 +24,10 @@ class Brand extends Model implements HasMediaConversions
         'location'
     ];
 
-
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'name'
-            ]
-        ];
-    }
+    protected $sluggable = [
+        'build_from' => 'name',
+        'save_to'    => 'slug',
+    ];
 
     public function setWebsiteAttribute($website)
     {

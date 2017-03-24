@@ -33,7 +33,7 @@
             @foreach($stockists as $stockist)
                 <div class="stockist-item" id="{{ $stockist->slug }}">
                     <div class="stockist-image-box">
-                        <img class="brand-image" src="{{ $stockist->coverPic('web') }}" alt="{{ $stockist->name }} image"/>
+                        <img class="brand-image" src="{{ $stockist->imageSrc() }}" alt="{{ $stockist->name }} image"/>
                     </div>
                     <div class="stockist-info-box">
                         <h2>{{ $stockist->name }}</h2>
