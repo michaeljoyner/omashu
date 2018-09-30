@@ -29,9 +29,10 @@
 
   .brand-image {
     display: block;
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
+    width: 100%;
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 4px;
     margin: 0 auto;
     @include respond-to(phone) {width: 180px; height: 180px;}
     @include respond-to(smalltablet) {width: 180px; height: 180px;}
