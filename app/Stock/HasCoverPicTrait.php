@@ -14,7 +14,7 @@ trait HasCoverPicTrait
     public function registerMediaConversions()
     {
         $this->addMediaConversion('thumb')
-            ->setManipulations(['w' => 250, 'h' => 250, 'fit' => 'crop'])
+            ->setManipulations(['w' => 250, 'h' => 250, 'fit' => 'fill'])
             ->performOnCollections('default');
         $this->addMediaConversion('web')
             ->setManipulations(['w' => 500, 'h' => 600])
