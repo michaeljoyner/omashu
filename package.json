@@ -14,6 +14,7 @@
   "dependencies": {
     "bootstrap-sass": "^3.0.0",
     "laravel-elixir": "^4.0.0",
+    "laravel-elixir-vueify": "^1.0.6",
     "lodash.throttle": "^4.0.1"
   }
 }
