@@ -121,14 +121,23 @@
         @include respond-to(smalltablet) {width: 100%; display: block;}
         @include respond-to(largetablet) {width: 100%; display: block;}
 
-        img {
-          display: block;
-          border-radius: 4px;
-          width: 100%;
-          max-width: 200px;
-          max-height: 200px;
-          margin: 0 auto 30px;
+        .image-box {
+          width: 200px;
+          height: 200px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            border-radius: 4px;
+            width: 100%;
+            max-width: 200px;
+            max-height: 200px;
+            margin: 0 auto 30px;
+          }
         }
+
+
 
         p {
           max-width: 80%;
